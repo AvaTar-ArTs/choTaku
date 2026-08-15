@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/AvaTar-ArTs/choTaku/schema/storyworld.schema.json",
+  "title": "choTaku StoryWorld",
+  "type": "object",
+  "required": ["id", "title", "logline"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$"},
+    "title": {"type": "string", "minLength": 1},
+    "logline": {"type": "string", "minLength": 1},
+    "themes": {"type": "array", "items": {"type": "string"}},
+    "style_tags": {"type": "array", "items": {"type": "string"}},
+    "sources": {"type": "array", "items": {"type": "string"}},
+    "metadata": {"type": "object"},
+    "characters": {"type": "array", "items": {"$ref": "#/$defs/character"}},
+    "locations": {"type": "array", "items": {"$ref": "#/$defs/location"}},
+    "lore": {"type": "array", "items": {"$ref": "#/$defs/lore"}},
+    "evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}},
+    "events": {"type": "array", "items": {"$ref": "#/$defs/event"}},
+    "scene_contracts": {"type": "array", "items": {"$ref": "#/$defs/scene_contract"}}
+  },
+  "$defs": {
+    "character": {
+      "type": "object", "required": ["id", "name"],
+      "properties": {
+        "id": {"type": "string"}, "name": {"type": "string"}, "role": {"type": "string"},
+        "goals": {"type": "array", "items": {"type": "string"}},
+        "fears": {"type": "array", "items": {"type": "string"}},
+        "wounds": {"type": "array", "items": {"type": "string"}},
+        "contradictions": {"type": "array", "items": {"type": "string"}},
+        "visual_anchors": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "location": {
+      "type": "object", "required": ["id", "name"],
+      "properties": {"id": {"type": "string"}, "name": {"type": "string"}, "description": {"type": "string"}, "sensory_motifs": {"type": "array", "items": {"type": "string"}}}
+    },
+    "lore": {
+      "type": "object", "required": ["id", "title", "statement"],
+      "properties": {"id": {"type": "string"}, "title": {"type": "string"}, "statement": {"type": "string"}, "status": {"type": "string"}, "sources": {"type": "array", "items": {"type": "string"}}}
+    },
+    "evidence": {
+      "type": "object", "required": ["id", "label", "kind"],
+      "properties": {"id": {"type": "string"}, "label": {"type": "string"}, "kind": {"type": "string"}, "description": {"type": "string"}, "consequence": {"type": "string"}, "discovered": {"type": "boolean"}}
+    },
+    "event": {
+      "type": "object", "required": ["id", "title", "summary", "sequence"],
+      "properties": {"id": {"type": "string"}, "title": {"type": "string"}, "summary": {"type": "string"}, "sequence": {"type": "integer"}, "participants": {"type": "array", "items": {"type": "string"}}, "location_id": {"type": ["string", "null"]}, "evidence_ids": {"type": "array", "items": {"type": "string"}}}
+    },
+    "scene_contract": {
+      "type": "object", "required": ["id", "event_id", "purpose", "emotional_turn", "visual_motif"],
+      "properties": {"id": {"type": "string"}, "event_id": {"type": "string"}, "purpose": {"type": "string"}, "emotional_turn": {"type": "string"}, "visual_motif": {"type": "string"}, "required_characters": {"type": "array", "items": {"type": "string"}}, "required_evidence": {"type": "array", "items": {"type": "string"}}, "continuity_notes": {"type": "array", "items": {"type": "string"}}}
+    }
+  }
+}
