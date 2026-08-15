@@ -1,0 +1,8 @@
+{
+  "id": "avatararts-research-ledger",
+  "uri": "https://github.com/AvaTar-ArTs/origin-story/blob/main/docs/source-and-research-ledger.md",
+  "title": "AvatarArts Source and Research Ledger",
+  "source_type": "first-party",
+  "quality": "owner-maintained synthesis",
+  "notes": "Human-readable ledger is preserved in Origin Story; this record is the machine-facing reference."
+}
