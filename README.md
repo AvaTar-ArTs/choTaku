@@ -87,12 +87,17 @@ skills/
 docs/
   architecture.md research-derived architecture and boundaries
   mcp-contract.md transport-neutral tool and resource contracts
+  creative-history-audit.md evidence-bounded conversation and creative-system audit
   research-to-implementation.md research → implementation map
 examples/
   crimson-curse-master.json
 tests/
   test_compiler.py
 ```
+
+## Creative-history audit
+
+The repository includes an evidence-bounded audit of the AvatarArts, Chozen Land, Origin Story, ichoTaKu, TrashCat, HeartBreak Alley, and multimodal production history in [docs/creative-history-audit.md](docs/creative-history-audit.md).
 
 ## Status
 
