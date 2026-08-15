@@ -1,4 +1,4 @@
-"""Core semantic models.
+"""Core semantic models for the choTaku storyworld compiler.
 
 The models intentionally use only the Python standard library so provider,
 database, UI, and MCP layers can evolve independently.
@@ -50,6 +50,49 @@ class Evidence:
 
 
 @dataclass
+class Relationship:
+    id: str
+    source_id: str
+    target_id: str
+    kind: str
+    tension: str = ""
+    history: str = ""
+    status: str = "ongoing"
+    load_bearing: bool = False
+
+
+@dataclass
+class GraphEdge:
+    source_id: str
+    target_id: str
+    kind: str
+    weight: float = 1.0
+    notes: str = ""
+
+
+@dataclass
+class SourceRecord:
+    id: str
+    uri: str
+    title: str = ""
+    source_type: str = "unknown"
+    quality: str = "unassessed"
+    accessed_at: str | None = None
+    notes: str = ""
+
+
+@dataclass
+class DecisionRecord:
+    id: str
+    subject: str
+    decision: str
+    rationale: str = ""
+    status: str = "proposed"
+    source_ids: list[str] = field(default_factory=list)
+    supersedes: str | None = None
+
+
+@dataclass
 class Event:
     id: str
     title: str
@@ -73,6 +116,18 @@ class SceneContract:
 
 
 @dataclass
+class ShotPlan:
+    id: str
+    scene_id: str
+    shot_type: str
+    camera: str = ""
+    duration_seconds: float | None = None
+    action: str = ""
+    dialogue: str = ""
+    panel_role: str = "beat"
+
+
+@dataclass
 class StoryWorld:
     id: str
     title: str
@@ -83,8 +138,13 @@ class StoryWorld:
     locations: list[Location] = field(default_factory=list)
     lore: list[LoreEntry] = field(default_factory=list)
     evidence: list[Evidence] = field(default_factory=list)
+    relationships: list[Relationship] = field(default_factory=list)
+    edges: list[GraphEdge] = field(default_factory=list)
     events: list[Event] = field(default_factory=list)
     scene_contracts: list[SceneContract] = field(default_factory=list)
+    shots: list[ShotPlan] = field(default_factory=list)
+    source_records: list[SourceRecord] = field(default_factory=list)
+    decisions: list[DecisionRecord] = field(default_factory=list)
     sources: list[str] = field(default_factory=list)
     metadata: dict[str, Any] = field(default_factory=dict)
 
@@ -103,8 +163,13 @@ class StoryWorld:
             locations=many("locations", Location),
             lore=many("lore", LoreEntry),
             evidence=many("evidence", Evidence),
+            relationships=many("relationships", Relationship),
+            edges=many("edges", GraphEdge),
             events=many("events", Event),
             scene_contracts=many("scene_contracts", SceneContract),
+            shots=many("shots", ShotPlan),
+            source_records=many("source_records", SourceRecord),
+            decisions=many("decisions", DecisionRecord),
             sources=data.get("sources", []),
             metadata=data.get("metadata", {}),
         )
