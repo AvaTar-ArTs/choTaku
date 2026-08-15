@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/AvaTar-ArTs/choTaku/schema/research-record.schema.json",
+  "title": "choTaku Research Record",
+  "type": "object",
+  "required": ["id", "uri"],
+  "properties": {
+    "id": {"type": "string"},
+    "uri": {"type": "string", "minLength": 1},
+    "title": {"type": "string"},
+    "source_type": {"type": "string", "enum": ["first-party", "github", "huggingface", "academic", "product", "tool", "community", "unknown", "legacy"]},
+    "quality": {"type": "string"},
+    "accessed_at": {"type": ["string", "null"], "format": "date-time"},
+    "notes": {"type": "string"}
+  }
+}
