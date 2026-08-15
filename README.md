@@ -89,6 +89,7 @@ docs/
   mcp-contract.md transport-neutral tool and resource contracts
   creative-history-audit.md evidence-bounded conversation and creative-system audit
   visual-layout-stabilization.md layout contracts, slot rules, and prompt grammar
+  expanded-repository-scan-2026-08.md further comics, manga, graphic-book, and storyboard research
   research-to-implementation.md research → implementation map
 examples/
   crimson-curse-master.json
