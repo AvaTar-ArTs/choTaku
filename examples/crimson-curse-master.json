@@ -1,0 +1,58 @@
+{
+  "id": "crimson-curse-master",
+  "title": "The Crimson Curse Master",
+  "logline": "A gifted occultist discovers that every curse he chooses to wield chooses something in him in return.",
+  "themes": ["agency versus destiny", "power as intimacy", "identity under consequence"],
+  "style_tags": ["scarlet crimson", "occult noir", "ink-heavy dark fantasy", "ritual geometry"],
+  "sources": ["AvatarArts original concept"],
+  "characters": [{
+    "id": "curse-master",
+    "name": "The Crimson Curse Master",
+    "role": "protagonist",
+    "goals": ["choose the terms of his own transformation"],
+    "fears": ["being chosen by the curse instead of choosing it"],
+    "wounds": ["he learned early that belonging always had a price"],
+    "contradictions": ["he protects others through the same violence that isolates him"],
+    "visual_anchors": ["scarlet sigil scars", "blackened fingertips", "one eye reflecting ritual light"]
+  }],
+  "locations": [{
+    "id": "red-archive",
+    "name": "The Red Archive",
+    "description": "A living library beneath a ruined chapel where forbidden names stain the walls.",
+    "sensory_motifs": ["iron rain", "candle smoke", "wet vellum", "distant bells"]
+  }],
+  "lore": [{
+    "id": "curse-law",
+    "title": "The Law of Reciprocal Choosing",
+    "statement": "A curse cannot be commanded without recognizing the desire it exposes in its bearer.",
+    "status": "canon",
+    "sources": ["AvatarArts original concept"]
+  }],
+  "evidence": [{
+    "id": "living-sigil",
+    "label": "The living sigil",
+    "kind": "relic",
+    "description": "A crimson mark that changes when the master lies about why he is casting.",
+    "consequence": "Each lie removes one memory of being loved.",
+    "discovered": true
+  }],
+  "events": [{
+    "id": "the-first-choosing",
+    "title": "The first choosing",
+    "summary": "The sigil answers before the ritual is complete.",
+    "sequence": 1,
+    "participants": ["curse-master"],
+    "location_id": "red-archive",
+    "evidence_ids": ["living-sigil"]
+  }],
+  "scene_contracts": [{
+    "id": "scene-first-choosing",
+    "event_id": "the-first-choosing",
+    "purpose": "Make the curse's agency undeniable.",
+    "emotional_turn": "confidence becomes intimate dread",
+    "visual_motif": "the sigil writes a second hand over his own",
+    "required_characters": ["curse-master"],
+    "required_evidence": ["living-sigil"],
+    "continuity_notes": ["Keep the left hand visibly unmarked until the sigil crosses the wrist."]
+  }]
+}
