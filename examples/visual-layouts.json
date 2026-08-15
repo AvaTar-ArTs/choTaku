@@ -1,0 +1,55 @@
+{
+  "schema_version": "0.1",
+  "layouts": [
+    {
+      "id": "broadcast-dossier-16x9",
+      "target": "ichotaku-broadcast-sheet",
+      "canvas": {"width": 1536, "height": 1024, "aspect_ratio": "3:2"},
+      "grid": {"columns": 12, "rows": 12, "gutter": 16, "margin": 28},
+      "slots": [
+        {"id": "masthead", "x": 0.03, "y": 0.03, "w": 0.94, "h": 0.10, "role": "identity"},
+        {"id": "hero", "x": 0.03, "y": 0.15, "w": 0.46, "h": 0.57, "role": "hero"},
+        {"id": "dossier", "x": 0.52, "y": 0.15, "w": 0.45, "h": 0.25, "role": "evidence"},
+        {"id": "action", "x": 0.52, "y": 0.43, "w": 0.45, "h": 0.29, "role": "action"},
+        {"id": "transmission-strip", "x": 0.03, "y": 0.76, "w": 0.94, "h": 0.19, "role": "sequence"},
+        {"id": "signature", "x": 0.70, "y": 0.78, "w": 0.27, "h": 0.15, "role": "signature"}
+      ],
+      "safe_zones": ["masthead", "dossier", "signature"],
+      "reading_order": ["masthead", "hero", "dossier", "action", "transmission-strip", "signature"],
+      "text_policy": "post-layout"
+    },
+    {
+      "id": "vertical-comic-page-2x3",
+      "target": "short-lore-comic",
+      "canvas": {"width": 1024, "height": 1536, "aspect_ratio": "2:3"},
+      "grid": {"columns": 8, "rows": 12, "gutter": 22, "margin": 36},
+      "slots": [
+        {"id": "title", "x": 0.06, "y": 0.03, "w": 0.88, "h": 0.10, "role": "identity"},
+        {"id": "panel-01", "x": 0.06, "y": 0.16, "w": 0.42, "h": 0.23, "role": "setup"},
+        {"id": "panel-02", "x": 0.52, "y": 0.16, "w": 0.42, "h": 0.23, "role": "cause"},
+        {"id": "panel-03", "x": 0.06, "y": 0.42, "w": 0.88, "h": 0.22, "role": "turn"},
+        {"id": "panel-04", "x": 0.06, "y": 0.67, "w": 0.42, "h": 0.19, "role": "consequence"},
+        {"id": "panel-05", "x": 0.52, "y": 0.67, "w": 0.42, "h": 0.19, "role": "reveal"},
+        {"id": "signature", "x": 0.06, "y": 0.89, "w": 0.88, "h": 0.07, "role": "closing-line"}
+      ],
+      "safe_zones": ["title", "signature"],
+      "reading_order": ["title", "panel-01", "panel-02", "panel-03", "panel-04", "panel-05", "signature"],
+      "text_policy": "post-layout"
+    },
+    {
+      "id": "campaign-banner-ultrawide",
+      "target": "music-channel-banner",
+      "canvas": {"width": 1536, "height": 614, "aspect_ratio": "5:2"},
+      "grid": {"columns": 12, "rows": 4, "gutter": 20, "margin": 28},
+      "slots": [
+        {"id": "title-lockup", "x": 0.05, "y": 0.17, "w": 0.34, "h": 0.58, "role": "identity"},
+        {"id": "atmosphere", "x": 0.39, "y": 0.10, "w": 0.23, "h": 0.72, "role": "negative-space"},
+        {"id": "subject", "x": 0.62, "y": 0.08, "w": 0.25, "h": 0.75, "role": "hero"},
+        {"id": "frequency", "x": 0.88, "y": 0.19, "w": 0.09, "h": 0.56, "role": "metadata"}
+      ],
+      "safe_zones": ["title-lockup", "frequency"],
+      "reading_order": ["title-lockup", "subject", "frequency"],
+      "text_policy": "post-layout"
+    }
+  ]
+}
