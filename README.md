@@ -37,6 +37,8 @@ Continuity, provenance, critique, publication
 
 - Typed storyworld, character, location, lore, event, scene, and artifact-plan models
 - A deterministic compiler from storyworld data to an artifact plan
+- Research-led source and decision ledgers with quality and supersession fields
+- Typed relationships, graph edges, timelines, and cinematic shot plans
 - Explicit scene contracts for visual and narrative continuity
 - Provider-neutral generation boundaries
 - Agent-role and skill-capability manifests
@@ -72,6 +74,9 @@ pytest
 src/chotaku/
   models.py       typed semantic objects
   compiler.py     deterministic storyworld → artifact compilation
+  graph.py        graph, timeline, and authoring-view projections
+  provenance.py   source ledger, decision ledger, and manifests
+  validation.py   continuity and reference checks
   cli.py          command-line entrypoint
 schemas/
   storyworld.schema.json
@@ -81,6 +86,8 @@ skills/
   manifest.yaml   reusable capability lenses
 docs/
   architecture.md research-derived architecture and boundaries
+  mcp-contract.md transport-neutral tool and resource contracts
+  research-to-implementation.md research → implementation map
 examples/
   crimson-curse-master.json
 tests/
@@ -92,6 +99,7 @@ tests/
 choTaku begins as a compact, inspectable kernel. Planned expansions include:
 
 - bidirectional graph editing
+- source-ledger ingestion and evidence confidence
 - panel and shot grammar
 - visual identity/reference adapters
 - image, audio, video, lettering, and layout providers
