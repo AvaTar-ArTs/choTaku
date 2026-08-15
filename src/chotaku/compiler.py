@@ -7,7 +7,9 @@ import json
 from datetime import datetime, timezone
 from typing import Any
 
+from .graph import graph_summary, timeline_view
 from .models import SceneContract, StoryWorld
+from .provenance import decision_ledger, manifest, source_ledger
 
 
 def _stable_hash(value: Any) -> str:
@@ -26,6 +28,17 @@ def compile_storyworld(world: StoryWorld, *, target: str = "comic") -> dict[str,
     characters = {character.id: character for character in world.characters}
     evidence = {item.id: item for item in world.evidence}
     locations = {location.id: location for location in world.locations}
+    shots_by_scene: dict[str, list[dict[str, Any]]] = {}
+    for shot in world.shots:
+        shots_by_scene.setdefault(shot.scene_id, []).append({
+            "id": shot.id,
+            "shot_type": shot.shot_type,
+            "camera": shot.camera,
+            "duration_seconds": shot.duration_seconds,
+            "action": shot.action,
+            "dialogue": shot.dialogue,
+            "panel_role": shot.panel_role,
+        })
 
     scenes: list[dict[str, Any]] = []
     warnings: list[str] = []
@@ -54,7 +67,7 @@ def compile_storyworld(world: StoryWorld, *, target: str = "comic") -> dict[str,
             for eid in contract.required_evidence
             if eid in evidence
         ]
-        location = locations.get(event.location_id) if event.location_id else None
+        location = locations.get(event.location_id)
 
         scenes.append({
             "id": contract.id,
@@ -73,6 +86,7 @@ def compile_storyworld(world: StoryWorld, *, target: str = "comic") -> dict[str,
                 "evidence": scene_evidence,
                 "notes": contract.continuity_notes,
             },
+            "shots": shots_by_scene.get(contract.id, []),
             "generation": {
                 "prompt_seed": f"{world.id}:{contract.id}:{target}",
                 "provider": "unassigned",
@@ -81,7 +95,7 @@ def compile_storyworld(world: StoryWorld, *, target: str = "comic") -> dict[str,
         })
 
     plan = {
-        "schema_version": "0.1",
+        "schema_version": "0.2",
         "world": {"id": world.id, "title": world.title, "logline": world.logline},
         "target": target,
         "canon": {
@@ -90,11 +104,20 @@ def compile_storyworld(world: StoryWorld, *, target: str = "comic") -> dict[str,
             "lore_ids": [item.id for item in world.lore],
             "source_refs": world.sources,
         },
+        "views": {
+            "graph": graph_summary(world),
+            "timeline": timeline_view(world),
+        },
+        "research": {
+            "sources": source_ledger(world),
+            "decisions": decision_ledger(world),
+        },
         "scenes": scenes,
         "quality_gates": [
             "time continuity",
             "space continuity",
             "character identity continuity",
+            "relationship continuity",
             "event and plot continuity",
             "style continuity",
             "theme and purpose continuity",
@@ -103,10 +126,15 @@ def compile_storyworld(world: StoryWorld, *, target: str = "comic") -> dict[str,
         "warnings": warnings,
         "provenance": {
             "compiler": "chotaku",
-            "compiler_version": "0.1.0",
+            "compiler_version": "0.2.0",
             "compiled_at": datetime.now(timezone.utc).isoformat(),
             "input_hash": _stable_hash(world.to_dict()),
         },
     }
     plan["plan_hash"] = _stable_hash(plan)
+    plan["artifact_manifest"] = manifest(
+        world=world,
+        plan_hash=plan["plan_hash"],
+        target=target,
+    )
     return plan
