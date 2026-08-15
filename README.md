@@ -88,6 +88,7 @@ docs/
   architecture.md research-derived architecture and boundaries
   mcp-contract.md transport-neutral tool and resource contracts
   creative-history-audit.md evidence-bounded conversation and creative-system audit
+  visual-layout-stabilization.md layout contracts, slot rules, and prompt grammar
   research-to-implementation.md research → implementation map
 examples/
   crimson-curse-master.json
