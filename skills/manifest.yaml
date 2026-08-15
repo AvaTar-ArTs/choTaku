@@ -1,0 +1,30 @@
+version: 0.1
+system: choTaku
+skills:
+  - id: origin-story
+    purpose: understand how a project, source, or artifact came to be
+    mode: research-and-comprehension
+  - id: storyworld-canon
+    purpose: model characters, locations, lore, evidence, events, and sources
+    mode: semantic
+  - id: psychology
+    purpose: make goals, fears, wounds, contradictions, and costs causally active
+    mode: narrative
+  - id: visual-story-editing
+    purpose: support bidirectional graph, timeline, entity, spatial, and action views
+    mode: authoring
+  - id: comic-grammar
+    purpose: translate scene contracts into panel, page, scroll, and shot plans
+    mode: production
+  - id: provider-adapters
+    purpose: isolate image, language, audio, video, layout, and publishing vendors
+    mode: integration
+  - id: continuity-gates
+    purpose: validate time, space, character, event, style, theme, and purpose
+    mode: verification
+  - id: provenance
+    purpose: preserve inputs, decisions, prompts, models, outputs, and hashes
+    mode: archival
+  - id: feedback-synthesis
+    purpose: turn critique into prioritized, testable revisions
+    mode: refinement
