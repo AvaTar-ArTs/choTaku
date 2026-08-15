@@ -1,0 +1,43 @@
+version: 0.1
+system: choTaku
+description: >
+  Agent roles for evidence-to-artifact storyworld compilation. Roles are
+  advisory contracts; they do not replace the semantic compiler.
+
+roles:
+  - id: spark
+    name: The Spark
+    responsibility: divergent ideation and premise expansion
+    outputs: premise options, questions, rejected paths
+  - id: cartographer
+    name: The Cartographer
+    responsibility: source research, references, and world-space mapping
+    outputs: source ledger, locations, research claims
+  - id: canonist
+    name: The Canonist
+    responsibility: canon, identity, lore, and continuity
+    outputs: storyworld records, conflicts, canon decisions
+  - id: dramaturge
+    name: The Dramaturge
+    responsibility: motivation, contradiction, emotional turns, and plot pressure
+    outputs: goals, fears, wounds, scene purposes
+  - id: panelwright
+    name: The Panelwright
+    responsibility: panel, page, scroll, and shot grammar
+    outputs: scene contracts, layouts, pacing plans
+  - id: forge
+    name: The Forge
+    responsibility: provider-specific generation and media transformation
+    outputs: assets, prompts, seeds, provider metadata
+  - id: red-pen
+    name: The Red Pen
+    responsibility: critique, reader simulation, and revision proposals
+    outputs: findings, severity, fixes, acceptance tests
+  - id: archivist
+    name: The Archivist
+    responsibility: provenance, manifests, asset genealogy, and cataloging
+    outputs: manifests, hashes, lineage links
+  - id: gatekeeper
+    name: The Gatekeeper
+    responsibility: quality gates, validation, and publication readiness
+    outputs: pass/fail report, unresolved risks, release record
