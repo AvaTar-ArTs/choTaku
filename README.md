@@ -1,0 +1,106 @@
+# choTaku
+
+## The story does not begin with a prompt.
+
+**choTaku** is AvatarArts’ provider-neutral storyworld compiler: a system for turning context, research, character psychology, lore, evidence, and creative intent into reproducible narrative artifacts.
+
+It is the implementation home for the ideas developed across:
+
+- **Origin Story** — reverse-engineering, research comprehension, source ledgers, and capability synthesis
+- **Chozen Land** — context → meaning → canon → graph → narrative → artifacts
+- **AvatarArts Comic Creator Matrix** — comic, manga, webtoon, graphic-novel, cinematic, and animated production
+- **AvatarArts Forge** — evidence-to-artifact compilation, continuity, provenance, and quality gates
+
+choTaku is not another “prompt-to-comic” wrapper. It owns the semantic layer that most creator tools leave implicit.
+
+## Core pipeline
+
+```text
+Context
+  ↓
+Meaning
+  ↓
+Canon + psychology + lore + evidence
+  ↓
+Story graph + timeline + scene contracts
+  ↓
+Narrative / panel / shot plans
+  ↓
+Provider adapters
+  ↓
+Artifacts: comic · manga · webtoon · graphic novel · storyboard · video
+  ↓
+Continuity, provenance, critique, publication
+```
+
+## What the first kernel provides
+
+- Typed storyworld, character, location, lore, event, scene, and artifact-plan models
+- A deterministic compiler from storyworld data to an artifact plan
+- Explicit scene contracts for visual and narrative continuity
+- Provider-neutral generation boundaries
+- Agent-role and skill-capability manifests
+- Provenance manifests for prompts, models, providers, inputs, outputs, and decisions
+- JSON Schema for interoperable storyworld data
+- A CLI suitable for later MCP, web, notebook, or batch adapters
+
+## Design principles
+
+1. **Canon before generation.** Generated assets are downstream of structured world knowledge.
+2. **Psychology is causal.** Goals, fears, wounds, contradictions, and costs shape scenes.
+3. **Evidence changes state.** Clues, relics, rituals, discoveries, and consequences are first-class.
+4. **Continuity is testable.** Time, space, character, event, style, and theme receive explicit checks.
+5. **Providers are replaceable.** No model vendor owns the story.
+6. **Every artifact has ancestry.** Outputs carry a manifest linking them to sources, decisions, prompts, and versions.
+7. **One semantic core, many surfaces.** Comics, manga, novels, animation, games, and websites are render targets.
+8. **Adapt patterns; do not copy systems wholesale.** Research informs architecture while choTaku remains proprietary.
+
+## Quick start
+
+```bash
+python -m pip install -e ".[dev]"
+
+chotaku compile examples/crimson-curse-master.json \
+  --output build/crimson-curse-plan.json
+
+pytest
+```
+
+## Repository map
+
+```text
+src/chotaku/
+  models.py       typed semantic objects
+  compiler.py     deterministic storyworld → artifact compilation
+  cli.py          command-line entrypoint
+schemas/
+  storyworld.schema.json
+agents/
+  manifest.yaml   role cards and handoff contracts
+skills/
+  manifest.yaml   reusable capability lenses
+docs/
+  architecture.md research-derived architecture and boundaries
+examples/
+  crimson-curse-master.json
+tests/
+  test_compiler.py
+```
+
+## Status
+
+choTaku begins as a compact, inspectable kernel. Planned expansions include:
+
+- bidirectional graph editing
+- panel and shot grammar
+- visual identity/reference adapters
+- image, audio, video, lettering, and layout providers
+- MCP tools
+- web authoring surface
+- asset catalog and search
+- continuity and reader-simulation gates
+- publication and localization adapters
+
+## License
+
+To be determined by the repository owner.
