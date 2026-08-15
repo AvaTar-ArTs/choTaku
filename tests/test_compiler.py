@@ -56,7 +56,7 @@ def test_compilation_includes_research_graph_and_manifest():
         source_ids=["source-1"],
     ))
     plan = compile_storyworld(world)
-    assert plan["views"]["graph"]["edges"][0]["kind"] == "haunted-by"
+    assert {edge["kind"] for edge in plan["views"]["graph"]["edges"]} == {"haunted-by", "reveals"}
     assert plan["research"]["decisions"][0]["status"] == "canon"
     assert plan["artifact_manifest"]["plan_hash"] == plan["plan_hash"]
 
