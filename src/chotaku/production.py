@@ -150,6 +150,7 @@ class CellDefinition:
     reading_order: int = 0
     text_region_ids: list[str] = field(default_factory=list)
     asset_id: str | None = None
+    focal_weight: float = 0.0
 
 
 @dataclass
@@ -295,13 +296,94 @@ def validate_focal_cell_dominance(contract: LayoutContract) -> list[ProductionFi
     focal = [cell for cell in contract.cells if cell.role in {"hero", "splash", "reveal"}]
     if not focal:
         return findings
+
     def area(cell: CellDefinition) -> float:
         slot = slots.get(cell.slot_id)
         return 0.0 if slot is None else slot.width * slot.height
-    largest = max(contract.cells, key=area)
-    if max(area(cell) for cell in focal) < area(largest):
+
+    largest_area = max(area(cell) for cell in contract.cells)
+    focal_area = max(area(cell) for cell in focal)
+    if focal_area < largest_area:
         findings.append(ProductionFinding("focal-cell-not-dominant", "warning", "hero/splash/reveal cell should dominate page area", "cells"))
+    for index, cell in enumerate(contract.cells):
+        if cell.focal_weight < 0 or cell.focal_weight > 1:
+            findings.append(ProductionFinding("invalid-focal-weight", "error", "focal_weight must be between 0 and 1", f"cells[{index}].focal_weight"))
+    if focal and max(cell.focal_weight for cell in focal) == 0:
+        findings.append(ProductionFinding("missing-focal-weight", "warning", "hero/splash/reveal cells should declare focal_weight", "cells"))
     return findings
+
+
+
+def validate_slot_overlaps(contract: LayoutContract) -> list[ProductionFinding]:
+    findings: list[ProductionFinding] = []
+    for left_index, left in enumerate(contract.slots):
+        for right_index in range(left_index + 1, len(contract.slots)):
+            right = contract.slots[right_index]
+            separated = (
+                left.x + left.width <= right.x
+                or right.x + right.width <= left.x
+                or left.y + left.height <= right.y
+                or right.y + right.height <= left.y
+            )
+            if not separated:
+                findings.append(
+                    ProductionFinding(
+                        "slot-overlap",
+                        "error",
+                        f"slots overlap: {left.id} and {right.id}",
+                        f"slots[{left_index}]",
+                    )
+                )
+    return findings
+
+
+def validate_references(contract: LayoutContract) -> list[ProductionFinding]:
+    findings: list[ProductionFinding] = []
+    style_ids = {style.id for style in contract.styles}
+    typography_ids = {style.id for style in contract.typography_styles}
+    balloon_ids = {style.id for style in contract.balloon_styles}
+    cell_ids = {cell.id for cell in contract.cells}
+    for index, style in enumerate(contract.styles):
+        if style.typography_id and style.typography_id not in typography_ids:
+            findings.append(ProductionFinding("unknown-typography-style", "error", f"unknown typography style: {style.typography_id}", f"styles[{index}]"))
+    for index, region in enumerate(contract.text_regions):
+        path = f"text_regions[{index}]"
+        for field_name, value, known, code in (
+            ("typography_id", region.typography_id, typography_ids, "unknown-typography-style"),
+            ("balloon_style_id", region.balloon_style_id, balloon_ids, "unknown-balloon-style"),
+        ):
+            if value and value not in known:
+                findings.append(ProductionFinding(code, "error", f"unknown {field_name}: {value}", path))
+        if not 0 <= region.x <= 1 or not 0 <= region.y <= 1 or region.x + region.width > 1 or region.y + region.height > 1:
+            findings.append(ProductionFinding("text-region-out-of-bounds", "error", "normalized text region must stay within 0..1 cell bounds", path))
+    for index, sfx in enumerate(contract.sfx_definitions):
+        path = f"sfx_definitions[{index}]"
+        if sfx.cell_id not in cell_ids:
+            findings.append(ProductionFinding("unknown-cell", "error", f"SFX references unknown cell: {sfx.cell_id}", path))
+        if sfx.typography_id and sfx.typography_id not in typography_ids:
+            findings.append(ProductionFinding("unknown-typography-style", "error", f"SFX references unknown typography: {sfx.typography_id}", path))
+        if not sfx.text.strip():
+            findings.append(ProductionFinding("empty-sfx", "error", "SFX text cannot be empty", path))
+    manifest_ids = {manifest.id for manifest in contract.prompt_manifests}
+    for index, manifest in enumerate(contract.prompt_manifests):
+        path = f"prompt_manifests[{index}]"
+        if manifest.artifact_id != contract.id:
+            findings.append(ProductionFinding("manifest-artifact-mismatch", "error", "prompt manifest artifact_id must match contract id", path))
+        if not manifest.template_id or not manifest.template_version:
+            findings.append(ProductionFinding("incomplete-prompt-template", "error", "prompt manifest requires template_id and template_version", path))
+        for style_id in manifest.layout_style_ids:
+            if style_id not in style_ids:
+                findings.append(ProductionFinding("unknown-style", "error", f"manifest references unknown style: {style_id}", path))
+        for typography_id in manifest.typography_style_ids:
+            if typography_id not in typography_ids:
+                findings.append(ProductionFinding("unknown-typography-style", "error", f"manifest references unknown typography: {typography_id}", path))
+        for balloon_id in manifest.balloon_style_ids:
+            if balloon_id not in balloon_ids:
+                findings.append(ProductionFinding("unknown-balloon-style", "error", f"manifest references unknown balloon: {balloon_id}", path))
+    if len(manifest_ids) != len(contract.prompt_manifests):
+        findings.append(ProductionFinding("duplicate-prompt-manifest", "error", "prompt manifest IDs must be unique", "prompt_manifests"))
+    return findings
+
 
 
 def validate_layout(contract: LayoutContract) -> list[ProductionFinding]:
@@ -351,6 +433,8 @@ def validate_layout(contract: LayoutContract) -> list[ProductionFinding]:
             findings.append(ProductionFinding("unknown-style", "error", f"text region references unknown style: {region.style_id}", path))
         if region.width <= 0 or region.height <= 0:
             findings.append(ProductionFinding("invalid-text-region", "error", "text region dimensions must be positive", path))
+    findings.extend(validate_slot_overlaps(contract))
+    findings.extend(validate_references(contract))
     findings.extend(validate_reading_order(contract))
     findings.extend(validate_balloon_tails(contract))
     findings.extend(validate_text_overflow(contract))
