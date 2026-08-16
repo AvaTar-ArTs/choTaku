@@ -1,3 +1,12 @@
+## 2026-08-15 — Generated visual atlas series
+
+### Added
+
+- Six compressed JPEG concept atlases under assets/visual-atlas.
+- Provenance guide connecting generated references to visual-language research and the AvatarArts creative corpus.
+- Cross-world layout references for Heart Break Alley, Signal Garden, Dominion Parade, ichoTAKU, Woolie/Thread Benders, and altered-state mythology.
+- Genre, page-rhythm, cross-format, and sequential-art examples for future LayoutContract fixtures and prompt manifests.
+
 # Changelog
 
 ## 2026-08-15 — Vision-derived visual reference atlas
