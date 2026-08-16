@@ -1,0 +1,199 @@
+{
+  "id": "fixture-dossier-grid",
+  "target": "graphic-novel",
+  "width": 1600,
+  "height": 2400,
+  "layout_family": "dossier_grid",
+  "gutter_rhythm": "regular",
+  "overflow_policy": "error",
+  "default_style_id": "fixture-style",
+  "panel_order": [
+    "slot-title",
+    "slot-portrait",
+    "slot-notes"
+  ],
+  "styles": [
+    {
+      "id": "fixture-style",
+      "family": "manga",
+      "direction": "ltr",
+      "background": "#11131a",
+      "border": "#ff3d9a",
+      "border_width": 4,
+      "corner_radius": 0,
+      "gutter": 24,
+      "padding": 24,
+      "typography_id": "dialogue-type"
+    }
+  ],
+  "typography_styles": [
+    {
+      "id": "dialogue-type",
+      "semantic_family": "hand_lettered_all_caps",
+      "font_family_id": "open-license-dialogue",
+      "case": "upper",
+      "weight": "regular",
+      "tracking": 0,
+      "line_height": 1.2,
+      "max_lines": 3,
+      "max_characters": 120,
+      "fill": "#ffffff",
+      "stroke": "none",
+      "shadow": "none",
+      "alignment": "left",
+      "legibility_minimum": 14,
+      "language_script": "Latn",
+      "license_status": "verified",
+      "source_uri": "https://github.com/AvaTar-ArTs/choTaku"
+    }
+  ],
+  "balloon_styles": [
+    {
+      "id": "speech-balloon",
+      "kind": "speech",
+      "shape": "oval",
+      "fill": "#ffffff",
+      "border": "#111111",
+      "border_width": 2,
+      "tail_mode": "speaker",
+      "tail_target_required": true,
+      "opacity": 1
+    }
+  ],
+  "sfx_definitions": [
+    {
+      "id": "sfx-1",
+      "cell_id": "cell-title",
+      "text": "SIGNAL",
+      "action": "broadcast",
+      "force_direction": "radial",
+      "typography_id": "dialogue-type",
+      "fill": "#ff3d9a",
+      "outline": "#111111",
+      "offset": 0,
+      "rotation": 0,
+      "warp": "burst",
+      "z_index": 2
+    }
+  ],
+  "slots": [
+    {
+      "id": "slot-title",
+      "role": "title",
+      "x": 80,
+      "y": 80,
+      "width": 1440,
+      "height": 260,
+      "label": "Title",
+      "safe_margin": 32
+    },
+    {
+      "id": "slot-portrait",
+      "role": "hero",
+      "x": 80,
+      "y": 400,
+      "width": 980,
+      "height": 1700,
+      "label": "Portrait",
+      "safe_margin": 40
+    },
+    {
+      "id": "slot-notes",
+      "role": "dossier",
+      "x": 1100,
+      "y": 400,
+      "width": 420,
+      "height": 1700,
+      "label": "Notes",
+      "safe_margin": 24
+    }
+  ],
+  "cells": [
+    {
+      "id": "cell-title",
+      "slot_id": "slot-title",
+      "role": "title",
+      "scene_id": "scene-1",
+      "style_id": "fixture-style",
+      "content_kind": "title",
+      "reading_order": 1,
+      "text_region_ids": [
+        "text-title"
+      ]
+    },
+    {
+      "id": "cell-portrait",
+      "slot_id": "slot-portrait",
+      "role": "hero",
+      "scene_id": "scene-1",
+      "style_id": "fixture-style",
+      "content_kind": "image",
+      "reading_order": 2,
+      "text_region_ids": []
+    },
+    {
+      "id": "cell-notes",
+      "slot_id": "slot-notes",
+      "role": "dossier",
+      "scene_id": "scene-1",
+      "style_id": "fixture-style",
+      "content_kind": "metadata",
+      "reading_order": 3,
+      "text_region_ids": [
+        "text-notes"
+      ]
+    }
+  ],
+  "text_regions": [
+    {
+      "id": "text-title",
+      "cell_id": "cell-title",
+      "kind": "caption",
+      "x": 0.06,
+      "y": 0.25,
+      "width": 0.9,
+      "height": 0.3,
+      "text": "FILE: THE CHOSEN",
+      "style_id": "fixture-style",
+      "typography_id": "dialogue-type",
+      "z_index": 3
+    },
+    {
+      "id": "text-notes",
+      "cell_id": "cell-notes",
+      "kind": "caption",
+      "x": 0.08,
+      "y": 0.08,
+      "width": 0.8,
+      "height": 0.5,
+      "text": "STATUS: UNRESOLVED",
+      "style_id": "fixture-style",
+      "typography_id": "dialogue-type",
+      "z_index": 3
+    }
+  ],
+  "prompt_manifests": [
+    {
+      "id": "prompt-fixture-dossier-grid",
+      "artifact_id": "fixture-dossier-grid",
+      "template_id": "layout/dossier_grid",
+      "template_version": "1",
+      "prompt_text": "Render dossier_grid using the locked cell geometry and declared reading order.",
+      "layout_style_ids": [
+        "fixture-style"
+      ],
+      "typography_style_ids": [
+        "dialogue-type"
+      ],
+      "balloon_style_ids": [
+        "speech-balloon"
+      ],
+      "source_ids": [
+        "fixture-source"
+      ],
+      "provider": "unassigned",
+      "model": "unassigned",
+      "seed": "fixture-dossier-grid"
+    }
+  ]
+}
