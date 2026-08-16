@@ -1,0 +1,335 @@
+{
+  "id": "dry-run-curse-of-knowing",
+  "target": "manga",
+  "width": 1024,
+  "height": 1536,
+  "layout_family": "origin_comic_page",
+  "gutter_rhythm": "regular",
+  "overflow_policy": "error",
+  "default_style_id": "curse-style",
+  "panel_order": [
+    "slot-title",
+    "slot-awakening",
+    "slot-offer",
+    "slot-cost",
+    "slot-choice"
+  ],
+  "styles": [
+    {
+      "id": "curse-style",
+      "family": "manga",
+      "direction": "rtl",
+      "background": "#10151c",
+      "border": "#d9b4ff",
+      "border_width": 6,
+      "corner_radius": 0,
+      "gutter": 16,
+      "padding": 20,
+      "typography_id": "curse-caption"
+    }
+  ],
+  "typography_styles": [
+    {
+      "id": "curse-title",
+      "semantic_family": "distressed_display",
+      "font_family_id": "open-license-display",
+      "case": "upper",
+      "weight": "bold",
+      "tracking": 0,
+      "line_height": 0.9,
+      "max_lines": 1,
+      "max_characters": 30,
+      "fill": "#f5e8bc",
+      "stroke": "#10151c",
+      "shadow": "none",
+      "alignment": "center",
+      "legibility_minimum": 22,
+      "language_script": "Latn",
+      "license_status": "verified",
+      "source_uri": "https://github.com/AvaTar-ArTs/choTaku"
+    },
+    {
+      "id": "curse-caption",
+      "semantic_family": "caption_block",
+      "font_family_id": "open-license-dialogue",
+      "case": "upper",
+      "weight": "regular",
+      "tracking": 0,
+      "line_height": 1.15,
+      "max_lines": 4,
+      "max_characters": 120,
+      "fill": "#f5e8bc",
+      "stroke": "none",
+      "shadow": "none",
+      "alignment": "left",
+      "legibility_minimum": 14,
+      "language_script": "Latn",
+      "license_status": "verified",
+      "source_uri": "https://github.com/AvaTar-ArTs/choTaku"
+    },
+    {
+      "id": "curse-dialogue",
+      "semantic_family": "hand_lettered_all_caps",
+      "font_family_id": "open-license-dialogue",
+      "case": "upper",
+      "weight": "bold",
+      "tracking": 0,
+      "line_height": 1.1,
+      "max_lines": 3,
+      "max_characters": 80,
+      "fill": "#10151c",
+      "stroke": "none",
+      "shadow": "none",
+      "alignment": "center",
+      "legibility_minimum": 14,
+      "language_script": "Latn",
+      "license_status": "verified",
+      "source_uri": "https://github.com/AvaTar-ArTs/choTaku"
+    }
+  ],
+  "balloon_styles": [
+    {
+      "id": "curse-speech",
+      "kind": "speech",
+      "shape": "oval",
+      "fill": "#f5e8bc",
+      "border": "#10151c",
+      "border_width": 3,
+      "tail_mode": "speaker",
+      "tail_target_required": true,
+      "opacity": 1
+    }
+  ],
+  "sfx_definitions": [
+    {
+      "id": "curse-sfx",
+      "cell_id": "cell-cost",
+      "text": "KSSHH",
+      "action": "curse_awakens",
+      "force_direction": "radial",
+      "typography_id": "curse-title",
+      "fill": "#ff7f66",
+      "outline": "#10151c",
+      "offset": 0,
+      "rotation": -8,
+      "warp": "echo",
+      "z_index": 2
+    }
+  ],
+  "slots": [
+    {
+      "id": "slot-title",
+      "role": "title",
+      "x": 24,
+      "y": 24,
+      "width": 976,
+      "height": 180,
+      "label": "The Curse of Knowing",
+      "safe_margin": 18
+    },
+    {
+      "id": "slot-awakening",
+      "role": "setup",
+      "x": 24,
+      "y": 220,
+      "width": 478,
+      "height": 480,
+      "label": "The gift arrives",
+      "safe_margin": 18
+    },
+    {
+      "id": "slot-offer",
+      "role": "setup",
+      "x": 522,
+      "y": 220,
+      "width": 478,
+      "height": 480,
+      "label": "The choosing",
+      "safe_margin": 18
+    },
+    {
+      "id": "slot-cost",
+      "role": "transition",
+      "x": 24,
+      "y": 720,
+      "width": 478,
+      "height": 792,
+      "label": "The cost becomes visible",
+      "safe_margin": 18
+    },
+    {
+      "id": "slot-choice",
+      "role": "reveal",
+      "x": 522,
+      "y": 720,
+      "width": 478,
+      "height": 792,
+      "label": "Meaning over certainty",
+      "safe_margin": 18
+    }
+  ],
+  "cells": [
+    {
+      "id": "cell-title",
+      "slot_id": "slot-title",
+      "role": "title",
+      "scene_id": "scene-choice",
+      "style_id": "curse-style",
+      "content_kind": "title",
+      "reading_order": 1,
+      "text_region_ids": [
+        "text-title"
+      ],
+      "focal_weight": 0.7
+    },
+    {
+      "id": "cell-awakening",
+      "slot_id": "slot-awakening",
+      "role": "setup",
+      "scene_id": "scene-choice",
+      "style_id": "curse-style",
+      "content_kind": "image",
+      "reading_order": 2,
+      "text_region_ids": [
+        "text-awakening"
+      ],
+      "focal_weight": 0.45
+    },
+    {
+      "id": "cell-offer",
+      "slot_id": "slot-offer",
+      "role": "setup",
+      "scene_id": "scene-choice",
+      "style_id": "curse-style",
+      "content_kind": "image",
+      "reading_order": 3,
+      "text_region_ids": [
+        "text-offer"
+      ],
+      "focal_weight": 0.6
+    },
+    {
+      "id": "cell-cost",
+      "slot_id": "slot-cost",
+      "role": "transition",
+      "scene_id": "scene-choice",
+      "style_id": "curse-style",
+      "content_kind": "image",
+      "reading_order": 4,
+      "text_region_ids": [
+        "text-cost"
+      ],
+      "focal_weight": 0.8
+    },
+    {
+      "id": "cell-choice",
+      "slot_id": "slot-choice",
+      "role": "reveal",
+      "scene_id": "scene-choice",
+      "style_id": "curse-style",
+      "content_kind": "image",
+      "reading_order": 5,
+      "text_region_ids": [
+        "text-choice"
+      ],
+      "focal_weight": 1
+    }
+  ],
+  "text_regions": [
+    {
+      "id": "text-title",
+      "cell_id": "cell-title",
+      "kind": "title",
+      "x": 0.08,
+      "y": 0.25,
+      "width": 0.84,
+      "height": 0.5,
+      "text": "THE CURSE OF KNOWING",
+      "style_id": "curse-style",
+      "typography_id": "curse-title",
+      "z_index": 3
+    },
+    {
+      "id": "text-awakening",
+      "cell_id": "cell-awakening",
+      "kind": "caption",
+      "x": 0.08,
+      "y": 0.06,
+      "width": 0.84,
+      "height": 0.25,
+      "text": "THE GIFT SHOWED EVERY POSSIBLE ENDING.",
+      "style_id": "curse-style",
+      "typography_id": "curse-caption",
+      "z_index": 3
+    },
+    {
+      "id": "text-offer",
+      "cell_id": "cell-offer",
+      "kind": "caption",
+      "x": 0.08,
+      "y": 0.06,
+      "width": 0.84,
+      "height": 0.25,
+      "text": "BUT NONE OF THEM EXPLAINED WHAT MATTERED.",
+      "style_id": "curse-style",
+      "typography_id": "curse-caption",
+      "z_index": 3
+    },
+    {
+      "id": "text-cost",
+      "cell_id": "cell-cost",
+      "kind": "sfx",
+      "x": 0.12,
+      "y": 0.42,
+      "width": 0.76,
+      "height": 0.2,
+      "text": "KSSHH",
+      "style_id": "curse-style",
+      "typography_id": "curse-title",
+      "z_index": 3
+    },
+    {
+      "id": "text-choice",
+      "cell_id": "cell-choice",
+      "kind": "dialogue",
+      "x": 0.08,
+      "y": 0.08,
+      "width": 0.84,
+      "height": 0.22,
+      "text": "I CHOOSE THE UNKNOWN.",
+      "style_id": "curse-style",
+      "balloon_style_id": "curse-speech",
+      "typography_id": "curse-dialogue",
+      "speaker_id": "seeker",
+      "target_anchor": "seeker-mouth",
+      "z_index": 3
+    }
+  ],
+  "prompt_manifests": [
+    {
+      "id": "prompt-dry-run-curse-of-knowing",
+      "artifact_id": "dry-run-curse-of-knowing",
+      "template_id": "layout/origin_comic_page",
+      "template_version": "1",
+      "prompt_text": "Render the Curse of Knowing as a five-cell RTL manga origin page. Preserve the title, two setup beats, cost transition, dominant choice reveal, caption-safe regions, and identity anchor.",
+      "layout_style_ids": [
+        "curse-style"
+      ],
+      "typography_style_ids": [
+        "curse-title",
+        "curse-caption",
+        "curse-dialogue"
+      ],
+      "balloon_style_ids": [
+        "curse-speech"
+      ],
+      "source_ids": [
+        "choosing-to-be-chosen",
+        "visual-reference-template-atlas"
+      ],
+      "provider": "unassigned",
+      "model": "unassigned",
+      "seed": "dry-run-curse-of-knowing"
+    }
+  ]
+}
