@@ -141,3 +141,62 @@ def test_visual_language_validators_report_deterministic_findings():
     assert "missing-balloon-tail" not in codes
     assert {finding.code for finding in validate_balloon_tails(contract)} == {"missing-balloon-style"}
     assert {finding.code for finding in validate_text_overflow(contract)} == {"text-overflow"}
+
+
+
+def test_visual_contract_references_and_geometry_are_validated():
+    from chotaku.production import (
+        CellDefinition,
+        LayoutStyle,
+        PromptManifest,
+        SfxDefinition,
+        TextRegionDefinition,
+        TypographyStyle,
+        validate_layout,
+    )
+
+    contract = LayoutContract(
+        "reference-check",
+        width=200,
+        height=200,
+        slots=[
+            LayoutSlot("hero", "hero", 0, 0, 140, 160),
+            LayoutSlot("detail", "detail", 100, 100, 80, 80),
+        ],
+        styles=[LayoutStyle("style", typography_id="type")],
+        cells=[
+            CellDefinition("hero-cell", "hero", role="hero", reading_order=1, focal_weight=0.9),
+            CellDefinition("detail-cell", "detail", role="detail", reading_order=2),
+        ],
+        text_regions=[
+            TextRegionDefinition("caption", "hero-cell", x=0.8, y=0.8, width=0.4, height=0.3, typography_id="type"),
+        ],
+        typography_styles=[TypographyStyle("type")],
+        sfx_definitions=[SfxDefinition("sfx", "missing-cell", "KRAK", typography_id="missing-type")],
+        prompt_manifests=[
+            PromptManifest(
+                "manifest",
+                "wrong-artifact",
+                "layout/reference-check",
+                typography_style_ids=["missing-type"],
+            )
+        ],
+    )
+    codes = {finding.code for finding in validate_layout(contract)}
+    assert "slot-overlap" in codes
+    assert "text-region-out-of-bounds" in codes
+    assert "unknown-cell" in codes
+    assert "unknown-typography-style" in codes
+    assert "manifest-artifact-mismatch" in codes
+
+
+def test_focal_weight_is_range_checked_and_missing_weight_is_visible():
+    from chotaku.production import CellDefinition, validate_focal_cell_dominance
+
+    contract = LayoutContract(
+        "focal-check",
+        slots=[LayoutSlot("hero", "hero", 0, 0, 100, 100)],
+        cells=[CellDefinition("hero-cell", "hero", role="hero", reading_order=1, focal_weight=1.5)],
+    )
+    findings = validate_focal_cell_dominance(contract)
+    assert {finding.code for finding in findings} == {"invalid-focal-weight"}
