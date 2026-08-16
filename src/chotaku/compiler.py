@@ -10,6 +10,7 @@ from typing import Any
 from .graph import graph_summary, timeline_view
 from .models import SceneContract, StoryWorld
 from .provenance import decision_ledger, manifest, source_ledger
+from .production import as_production_dict
 
 
 def _stable_hash(value: Any) -> str:
@@ -112,6 +113,13 @@ def compile_storyworld(world: StoryWorld, *, target: str = "comic") -> dict[str,
             "sources": source_ledger(world),
             "decisions": decision_ledger(world),
         },
+        "production": {
+            "identity_memories": [as_production_dict(item) for item in world.identity_memories],
+            "reader_states": [as_production_dict(item) for item in world.reader_states],
+            "rights_records": [as_production_dict(item) for item in world.rights_records],
+            "layout_contracts": [as_production_dict(item) for item in world.layout_contracts],
+            "render_checkpoints": [as_production_dict(item) for item in world.render_checkpoints],
+        },
         "scenes": scenes,
         "quality_gates": [
             "time continuity",
@@ -122,6 +130,9 @@ def compile_storyworld(world: StoryWorld, *, target: str = "comic") -> dict[str,
             "style continuity",
             "theme and purpose continuity",
             "provenance manifest present",
+            "rights status cleared before generation",
+            "layout contract validated before composition",
+            "render checkpoint available for resumable production",
         ],
         "warnings": warnings,
         "provenance": {
