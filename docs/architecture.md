@@ -58,3 +58,20 @@ JSON storyworld
 ```
 
 No model call occurs inside the compiler. This makes it testable, reproducible, and safe to connect to MCP or external providers later.
+
+## Production contract layer
+
+The expanded creator-system research led to a second contract layer between semantic planning and provider execution:
+
+| Contract | Purpose |
+|---|---|
+| IdentityMemory | approved visual anchors, negative anchors, references, versions, and drift checks |
+| ReaderState | known facts, new reveals, and unresolved questions |
+| RightsRecord | ownership, licensing, clearance, restrictions, and pre-generation gates |
+| LayoutContract | declarative page geometry, slots, order, safe margins, and overflow checks |
+| RenderCheckpoint | resumable units, completed outputs, failures, and remaining work |
+| SVG projection | deterministic inspection/export view for page and panel contracts |
+
+This preserves the strongest external production pattern: approved identity memory + story-first planning + declarative layout + resumable production + provenance-aware export.
+
+The contracts live in `src/chotaku/production.py` and are emitted under the production section of compiled artifact plans. Provider adapters may consume them, but they cannot change canon implicitly.
