@@ -1,3 +1,11 @@
+## 2026-08-15 — Dry-run compatibility fix
+
+### Fixed
+
+- Kept focal_weight optional for existing layout fixtures while retaining strict 0–1 range validation.
+- Updated the SVG dry-run regression assertion to use the renderer's semantic cell labels.
+- GitHub Actions run 92 passed after the correction.
+
 ## 2026-08-15 — Visual contract validation tier and dry run
 
 ### Added
