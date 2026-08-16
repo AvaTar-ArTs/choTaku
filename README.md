@@ -99,6 +99,7 @@ docs/
   research-to-implementation.md research → implementation map
 examples/
   crimson-curse-master.json
+  choosing-to-be-chosen.json  creation fixture: the Curse of Knowing
 tests/
   test_compiler.py
 ```
