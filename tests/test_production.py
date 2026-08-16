@@ -129,7 +129,7 @@ def test_visual_language_validators_report_deterministic_findings():
         ],
         text_regions=[
             TextRegionDefinition("dialogue", "c1", kind="dialogue", text="hello"),
-            TextRegionDefinition("caption", "c2", text="this text is intentionally too long"),
+            TextRegionDefinition("caption", "c2", text="this text is intentionally too long", typography_id="tight"),
         ],
         typography_styles=[TypographyStyle("tight", max_characters=5)],
         balloon_styles=[BalloonStyle("speech-balloon")],
@@ -137,7 +137,7 @@ def test_visual_language_validators_report_deterministic_findings():
     codes = {finding.code for finding in validate_layout(contract)}
     assert "duplicate-reading-order" in codes
     assert "missing-balloon-style" in codes
-    assert "text-overflow" not in codes
+    assert "text-overflow" in codes
     assert "missing-balloon-tail" not in codes
     assert {finding.code for finding in validate_balloon_tails(contract)} == {"missing-balloon-style"}
-    assert validate_text_overflow(contract) == []
+    assert {finding.code for finding in validate_text_overflow(contract)} == {"text-overflow"}
