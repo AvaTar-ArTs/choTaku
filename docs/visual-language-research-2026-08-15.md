@@ -414,11 +414,15 @@ Numeric dimensions such as “200px gutters” or “800px webtoon width” are 
 - [Comicory: Comic Book Lettering](https://www.comicory.com/blog/comic-book-lettering)
 - [Coloso webtoon layout reference](https://coloso.global/zh-TW/products/webtoonartist-sakon-us)
 
-## Proposed next implementation
+## Implemented production extension
 
-1. Add TypographyStyle, BalloonStyle, and SfxDefinition dataclasses beside the existing layout contracts.
-2. Add balloon_style_id, typography_id, speaker_id, target_anchor, and z_index to text regions.
-3. Add gutter_rhythm and layout_family to LayoutContract.
-4. Add deterministic validators for reading order, balloon tails, text overflow, and focal-cell dominance.
-5. Add fixture packs for ltr_grid, rtl_grid, ttb_scroll, dossier_grid, and storyboard_shot.
-6. Add prompt manifests so every generated page records the exact template, style IDs, and source references used.
+The visual-language contract layer now includes:
+
+1. TypographyStyle, BalloonStyle, and SfxDefinition dataclasses beside the layout contracts.
+2. Text-region fields for balloon_style_id, typography_id, speaker_id, target_anchor, and z_index.
+3. LayoutContract fields for gutter_rhythm, layout_family, typography styles, balloon styles, SFX definitions, and prompt manifests.
+4. Deterministic validators for reading order, balloon tails, text overflow, and focal-cell dominance.
+5. Executable fixture packs for ltr_grid, rtl_grid, ttb_scroll, dossier_grid, and storyboard_shot under fixtures/layouts.
+6. PromptManifest records containing the exact template, version, style IDs, source IDs, provider/model placeholders, and seed.
+
+The remaining adapter work is to make providers consume these contracts directly and to add richer geometry-aware text measurement once a renderer is selected.
