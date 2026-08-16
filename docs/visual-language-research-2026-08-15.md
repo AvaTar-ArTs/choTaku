@@ -357,6 +357,35 @@ layout_contract:
       style_id: signal-punk
 ~~~
 
+## Font research and licensing boundary
+
+The research separates font inspiration from font redistribution:
+
+| Font ecosystem | Best use in choTaku | Licensing note |
+|---|---|---|
+| Blambot | dialogue, captions, SFX, display lettering | verify the exact font license; free does not automatically mean embeddable or redistributable |
+| Comicraft | professional comic dialogue, manga translation, display and logo lettering | Adobe Fonts usage is distinct from self-hosting, application embedding, or shipping font files |
+| Open-license families | metadata, captions, UI, multilingual support | store the license and version in the typography manifest |
+| Custom/generated lettering | logos, signature marks, one-off SFX | preserve editable vector/source provenance and avoid treating a rasterized sample as a reusable font |
+
+Useful references include [Comicraft on Adobe Fonts](https://fonts.adobe.com/foundries/comicraft), [Blambot on Adobe Fonts](https://fonts.adobe.com/fonts/blambot), [Wildwords](https://www.fontspring.com/fonts/comicraft/wildwords), and [Squarejaw Intl BB](https://www.fontbros.com/font-family/squarejaw-intl-bb). These are research references and licensing leads, not an instruction to bundle commercial font files.
+
+For choTaku, typography manifests should record:
+
+~~~yaml
+typography:
+  id: signal-punk-dialogue
+  semantic_family: hand_lettered_all_caps
+  font_family_id: provider-or-license-specific-id
+  license_status: verified | restricted | unknown
+  allowed_uses: [rendered_image, pdf, web, app]
+  embedding: prohibited | permitted | unknown
+  fallback_family_id: open-license-fallback
+  source_uri: https://example.invalid
+~~~
+
+The safe default is to generate rendered text or SVG paths through a licensed provider, retain the font provenance, and never silently redistribute a font file whose license has not been checked.
+
 ## Source quality and caveats
 
 | Source class | Examples | Use |
