@@ -100,6 +100,8 @@ docs/
 examples/
   crimson-curse-master.json
   choosing-to-be-chosen.json  creation fixture: the Curse of Knowing
+fixtures/
+  layouts/          ltr, rtl, vertical-scroll, dossier, and storyboard contracts
 tests/
   test_compiler.py
 ```
