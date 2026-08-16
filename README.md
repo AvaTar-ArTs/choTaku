@@ -90,6 +90,8 @@ docs/
   creative-history-audit.md evidence-bounded conversation and creative-system audit
   visual-layout-stabilization.md layout contracts, slot rules, and prompt grammar
   expanded-repository-scan-2026-08.md further comics, manga, graphic-book, and storyboard research
+  first-party-invokeai-audit.md first-party visual-generation substrate audit
+  mcp-integration-map.md MCP transport and provider-boundary map
   research-to-implementation.md research → implementation map
 examples/
   crimson-curse-master.json
