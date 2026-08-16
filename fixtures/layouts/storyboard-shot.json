@@ -1,0 +1,164 @@
+{
+  "id": "fixture-storyboard-shot",
+  "target": "storyboard",
+  "width": 1600,
+  "height": 2400,
+  "layout_family": "storyboard_shot",
+  "gutter_rhythm": "tight",
+  "overflow_policy": "error",
+  "default_style_id": "fixture-style",
+  "panel_order": [
+    "slot-shot",
+    "slot-camera"
+  ],
+  "styles": [
+    {
+      "id": "fixture-style",
+      "family": "manga",
+      "direction": "ltr",
+      "background": "#11131a",
+      "border": "#ff3d9a",
+      "border_width": 4,
+      "corner_radius": 0,
+      "gutter": 24,
+      "padding": 24,
+      "typography_id": "dialogue-type"
+    }
+  ],
+  "typography_styles": [
+    {
+      "id": "dialogue-type",
+      "semantic_family": "hand_lettered_all_caps",
+      "font_family_id": "open-license-dialogue",
+      "case": "upper",
+      "weight": "regular",
+      "tracking": 0,
+      "line_height": 1.2,
+      "max_lines": 3,
+      "max_characters": 120,
+      "fill": "#ffffff",
+      "stroke": "none",
+      "shadow": "none",
+      "alignment": "left",
+      "legibility_minimum": 14,
+      "language_script": "Latn",
+      "license_status": "verified",
+      "source_uri": "https://github.com/AvaTar-ArTs/choTaku"
+    }
+  ],
+  "balloon_styles": [
+    {
+      "id": "speech-balloon",
+      "kind": "speech",
+      "shape": "oval",
+      "fill": "#ffffff",
+      "border": "#111111",
+      "border_width": 2,
+      "tail_mode": "speaker",
+      "tail_target_required": true,
+      "opacity": 1
+    }
+  ],
+  "sfx_definitions": [
+    {
+      "id": "sfx-1",
+      "cell_id": "cell-shot",
+      "text": "SIGNAL",
+      "action": "broadcast",
+      "force_direction": "radial",
+      "typography_id": "dialogue-type",
+      "fill": "#ff3d9a",
+      "outline": "#111111",
+      "offset": 0,
+      "rotation": 0,
+      "warp": "burst",
+      "z_index": 2
+    }
+  ],
+  "slots": [
+    {
+      "id": "slot-shot",
+      "role": "storyboard_shot",
+      "x": 80,
+      "y": 80,
+      "width": 1100,
+      "height": 900,
+      "label": "SHOT 01",
+      "safe_margin": 32
+    },
+    {
+      "id": "slot-camera",
+      "role": "diagram",
+      "x": 1220,
+      "y": 80,
+      "width": 300,
+      "height": 900,
+      "label": "CAMERA",
+      "safe_margin": 24
+    }
+  ],
+  "cells": [
+    {
+      "id": "cell-shot",
+      "slot_id": "slot-shot",
+      "role": "storyboard_shot",
+      "scene_id": "scene-1",
+      "shot_id": "shot-1",
+      "style_id": "fixture-style",
+      "content_kind": "image",
+      "reading_order": 1,
+      "text_region_ids": [
+        "text-shot"
+      ]
+    },
+    {
+      "id": "cell-camera",
+      "slot_id": "slot-camera",
+      "role": "diagram",
+      "scene_id": "scene-1",
+      "style_id": "fixture-style",
+      "content_kind": "metadata",
+      "reading_order": 2,
+      "text_region_ids": []
+    }
+  ],
+  "text_regions": [
+    {
+      "id": "text-shot",
+      "cell_id": "cell-shot",
+      "kind": "caption",
+      "x": 0.05,
+      "y": 0.08,
+      "width": 0.7,
+      "height": 0.2,
+      "text": "LOW ANGLE / HAND ACCEPTS THREAD",
+      "style_id": "fixture-style",
+      "typography_id": "dialogue-type",
+      "z_index": 3
+    }
+  ],
+  "prompt_manifests": [
+    {
+      "id": "prompt-fixture-storyboard-shot",
+      "artifact_id": "fixture-storyboard-shot",
+      "template_id": "layout/storyboard_shot",
+      "template_version": "1",
+      "prompt_text": "Render storyboard_shot using the locked cell geometry and declared reading order.",
+      "layout_style_ids": [
+        "fixture-style"
+      ],
+      "typography_style_ids": [
+        "dialogue-type"
+      ],
+      "balloon_style_ids": [
+        "speech-balloon"
+      ],
+      "source_ids": [
+        "fixture-source"
+      ],
+      "provider": "unassigned",
+      "model": "unassigned",
+      "seed": "fixture-storyboard-shot"
+    }
+  ]
+}
