@@ -1,3 +1,18 @@
+## 2026-08-15 — Visual contract validation tier and dry run
+
+### Added
+
+- Cell focal_weight support with range validation and focal-declaration findings.
+- Slot-overlap detection.
+- Normalized text-region bounds validation.
+- Typography, balloon, SFX, and prompt-manifest reference integrity checks.
+- Public exports for visual contract validators.
+- Executable Curse of Knowing dry-run layout fixture and SVG preview regression test.
+
+### Dry-run result
+
+The five-cell RTL origin-comic contract for “choosing to be chosen” and the Curse of Knowing validates with zero findings and exports a deterministic SVG preview.
+
 ## 2026-08-15 — Generated visual atlas series
 
 ### Added
