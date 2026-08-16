@@ -90,6 +90,7 @@ docs/
   creative-history-audit.md evidence-bounded conversation and creative-system audit
   visual-layout-stabilization.md layout contracts, slot rules, and prompt grammar
   expanded-repository-scan-2026-08.md further comics, manga, graphic-book, and storyboard research
+  visual-language-research-2026-08-15.md typography, lettering, cell grammar, and prompt templates
   first-party-invokeai-audit.md first-party visual-generation substrate audit
   mcp-integration-map.md MCP transport and provider-boundary map
   avatararts-repository-constellation-audit-2026-08-15.md full first-party repository ecosystem audit
@@ -114,6 +115,7 @@ choTaku begins as a compact, inspectable kernel. Planned expansions include:
 - source-ledger ingestion and evidence confidence
 - panel and shot grammar
 - visual identity/reference adapters
+- typography, balloon, caption, SFX, and reading-order contracts
 - image, audio, video, lettering, and layout providers
 - MCP tools
 - web authoring surface
