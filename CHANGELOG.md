@@ -1,5 +1,18 @@
 # Changelog
 
+## 2026-08-15 — Creation test: The Curse of Knowing
+
+### Added
+
+- Full storyworld fixture for “choosing to be chosen” and the Curse of Knowing.
+- Character psychology, reciprocal curse lore, evidence, relationships, five-scene arc, reader states, identity memories, rights records, render checkpoint, manga layout, cells, and text regions.
+- Compiler regression test proving the fixture produces five ordered scenes and a production contract.
+
+### Narrative premise
+
+The protagonist is not gifted with generic omniscience. They are forced to see probable consequences while remaining unable to know why a choice is worth making. The dramatic resolution is choosing meaning after certainty.
+
+
 ## 2026-08-15 — Visual language research and prompt stabilization
 
 ### Added
