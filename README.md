@@ -91,20 +91,27 @@ docs/
   visual-layout-stabilization.md layout contracts, slot rules, and prompt grammar
   expanded-repository-scan-2026-08.md further comics, manga, graphic-book, and storyboard research
   visual-language-research-2026-08-15.md typography, lettering, cell grammar, and prompt templates
+  visual-reference-template-atlas-2026-08-15.md vision-derived dossier, comic, manga, light-novel, spread, and webtoon templates
   first-party-invokeai-audit.md first-party visual-generation substrate audit
   mcp-integration-map.md MCP transport and provider-boundary map
   avatararts-repository-constellation-audit-2026-08-15.md full first-party repository ecosystem audit
   hidden-python-systems-audit-2026-08-15.md recursive Python capability and subsystem audit
-  research-derived-production-features.md implemented identity, rights, layout, checkpoint, and SVG contracts
+  research-derived-production-features.md implemented identity, rights, checkpoint, layout, and SVG contracts
   research-to-implementation.md research → implementation map
 examples/
   crimson-curse-master.json
   choosing-to-be-chosen.json  creation fixture: the Curse of Knowing
 fixtures/
-  layouts/          ltr, rtl, vertical-scroll, dossier, and storyboard contracts
+  layouts/          LTR, RTL, vertical-scroll, dossier, storyboard, signal, and origin contracts
 tests/
   test_compiler.py
 ```
+
+## Visual reference atlas
+
+The visual reference atlas documents eight supplied first-party reference images as reusable layout families: signal dossier board, signal profile sheet, volume taxonomy board, origin comic page, system-breach irregular page, open-book spread, and webtoon transformation stack. It also records prompt templates, stabilization rules, external research links, and the mapping to TypographyStyle, BalloonStyle, SfxDefinition, and PromptManifest.
+
+Read [docs/visual-reference-template-atlas-2026-08-15.md](docs/visual-reference-template-atlas-2026-08-15.md).
 
 ## Creative-history audit
 
