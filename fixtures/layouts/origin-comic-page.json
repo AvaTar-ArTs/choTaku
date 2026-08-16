@@ -1,0 +1,315 @@
+{
+  "id": "fixture-origin-comic-page",
+  "target": "comic",
+  "width": 1024,
+  "height": 1536,
+  "layout_family": "origin_comic_page",
+  "gutter_rhythm": "regular",
+  "overflow_policy": "error",
+  "default_style_id": "origin-style",
+  "panel_order": [
+    "slot-title",
+    "slot-cause",
+    "slot-intervention",
+    "slot-failure",
+    "slot-reveal"
+  ],
+  "styles": [
+    {
+      "id": "origin-style",
+      "family": "distressed-origin",
+      "direction": "ltr",
+      "background": "#0b2227",
+      "border": "#f5e8bc",
+      "border_width": 8,
+      "corner_radius": 0,
+      "gutter": 18,
+      "padding": 22,
+      "typography_id": "origin-caption"
+    }
+  ],
+  "typography_styles": [
+    {
+      "id": "origin-title",
+      "semantic_family": "distressed_display",
+      "font_family_id": "licensed-display-or-approved-substitute",
+      "case": "upper",
+      "weight": "bold",
+      "tracking": 0,
+      "line_height": 0.9,
+      "max_lines": 1,
+      "max_characters": 12,
+      "fill": "#d9ef9a",
+      "stroke": "#0b2227",
+      "shadow": "none",
+      "alignment": "center",
+      "legibility_minimum": 24,
+      "language_script": "Latn",
+      "license_status": "review_required",
+      "source_uri": "https://github.com/AvaTar-ArTs/choTaku"
+    },
+    {
+      "id": "origin-caption",
+      "semantic_family": "caption_block",
+      "font_family_id": "open-license-dialogue",
+      "case": "upper",
+      "weight": "bold",
+      "tracking": 0,
+      "line_height": 1.15,
+      "max_lines": 4,
+      "max_characters": 90,
+      "fill": "#0b2227",
+      "stroke": "none",
+      "shadow": "none",
+      "alignment": "left",
+      "legibility_minimum": 16,
+      "language_script": "Latn",
+      "license_status": "verified",
+      "source_uri": "https://github.com/AvaTar-ArTs/choTaku"
+    }
+  ],
+  "balloon_styles": [
+    {
+      "id": "origin-callout",
+      "kind": "system",
+      "shape": "caption_box",
+      "fill": "#f5e8bc",
+      "border": "#0b2227",
+      "border_width": 3,
+      "tail_mode": "none",
+      "tail_target_required": false,
+      "opacity": 1
+    }
+  ],
+  "sfx_definitions": [
+    {
+      "id": "origin-sfx",
+      "cell_id": "cell-failure",
+      "text": "KSSHH",
+      "action": "system_failure",
+      "force_direction": "horizontal",
+      "typography_id": "origin-title",
+      "fill": "#f6a04d",
+      "outline": "#0b2227",
+      "offset": 0,
+      "rotation": 0,
+      "warp": "echo",
+      "z_index": 2
+    }
+  ],
+  "slots": [
+    {
+      "id": "slot-title",
+      "role": "title",
+      "x": 42,
+      "y": 36,
+      "width": 940,
+      "height": 220,
+      "label": "Origin title",
+      "safe_margin": 22
+    },
+    {
+      "id": "slot-cause",
+      "role": "setup",
+      "x": 42,
+      "y": 284,
+      "width": 450,
+      "height": 520,
+      "label": "Cause",
+      "safe_margin": 22
+    },
+    {
+      "id": "slot-intervention",
+      "role": "setup",
+      "x": 532,
+      "y": 284,
+      "width": 450,
+      "height": 520,
+      "label": "Intervention",
+      "safe_margin": 22
+    },
+    {
+      "id": "slot-failure",
+      "role": "transition",
+      "x": 42,
+      "y": 832,
+      "width": 450,
+      "height": 648,
+      "label": "Failure",
+      "safe_margin": 22
+    },
+    {
+      "id": "slot-reveal",
+      "role": "reveal",
+      "x": 532,
+      "y": 832,
+      "width": 450,
+      "height": 648,
+      "label": "Reveal",
+      "safe_margin": 22
+    }
+  ],
+  "cells": [
+    {
+      "id": "cell-title",
+      "slot_id": "slot-title",
+      "role": "title",
+      "scene_id": "scene-origin",
+      "style_id": "origin-style",
+      "content_kind": "title",
+      "reading_order": 1,
+      "text_region_ids": [
+        "text-title"
+      ],
+      "focal_weight": 0.8
+    },
+    {
+      "id": "cell-cause",
+      "slot_id": "slot-cause",
+      "role": "setup",
+      "scene_id": "scene-origin",
+      "style_id": "origin-style",
+      "content_kind": "image",
+      "reading_order": 2,
+      "text_region_ids": [
+        "text-cause"
+      ],
+      "focal_weight": 0.55
+    },
+    {
+      "id": "cell-intervention",
+      "slot_id": "slot-intervention",
+      "role": "setup",
+      "scene_id": "scene-origin",
+      "style_id": "origin-style",
+      "content_kind": "image",
+      "reading_order": 3,
+      "text_region_ids": [
+        "text-intervention"
+      ],
+      "focal_weight": 0.6
+    },
+    {
+      "id": "cell-failure",
+      "slot_id": "slot-failure",
+      "role": "transition",
+      "scene_id": "scene-origin",
+      "style_id": "origin-style",
+      "content_kind": "image",
+      "reading_order": 4,
+      "text_region_ids": [
+        "text-failure"
+      ],
+      "focal_weight": 0.7
+    },
+    {
+      "id": "cell-reveal",
+      "slot_id": "slot-reveal",
+      "role": "reveal",
+      "scene_id": "scene-origin",
+      "style_id": "origin-style",
+      "content_kind": "image",
+      "reading_order": 5,
+      "text_region_ids": [
+        "text-reveal"
+      ],
+      "focal_weight": 1
+    }
+  ],
+  "text_regions": [
+    {
+      "id": "text-title",
+      "cell_id": "cell-title",
+      "kind": "title",
+      "x": 0.08,
+      "y": 0.2,
+      "width": 0.84,
+      "height": 0.6,
+      "text": "THE CHOSEN",
+      "style_id": "origin-style",
+      "typography_id": "origin-title",
+      "z_index": 3
+    },
+    {
+      "id": "text-cause",
+      "cell_id": "cell-cause",
+      "kind": "caption",
+      "x": 0.08,
+      "y": 0.06,
+      "width": 0.84,
+      "height": 0.24,
+      "text": "AS A DYING SCIENTIST...",
+      "style_id": "origin-style",
+      "balloon_style_id": "origin-callout",
+      "typography_id": "origin-caption",
+      "z_index": 3
+    },
+    {
+      "id": "text-intervention",
+      "cell_id": "cell-intervention",
+      "kind": "caption",
+      "x": 0.08,
+      "y": 0.06,
+      "width": 0.84,
+      "height": 0.28,
+      "text": "HE TRIED TO PATCH HIS BODY WITH FORBIDDEN TECH...",
+      "style_id": "origin-style",
+      "balloon_style_id": "origin-callout",
+      "typography_id": "origin-caption",
+      "z_index": 3
+    },
+    {
+      "id": "text-failure",
+      "cell_id": "cell-failure",
+      "kind": "sfx",
+      "x": 0.08,
+      "y": 0.4,
+      "width": 0.84,
+      "height": 0.3,
+      "text": "KSSHH",
+      "style_id": "origin-style",
+      "typography_id": "origin-title",
+      "z_index": 3
+    },
+    {
+      "id": "text-reveal",
+      "cell_id": "cell-reveal",
+      "kind": "caption",
+      "x": 0.08,
+      "y": 0.78,
+      "width": 0.84,
+      "height": 0.16,
+      "text": "REBORN THROUGH CODE AND CURSE.",
+      "style_id": "origin-style",
+      "balloon_style_id": "origin-callout",
+      "typography_id": "origin-caption",
+      "z_index": 3
+    }
+  ],
+  "prompt_manifests": [
+    {
+      "id": "prompt-origin-comic-page",
+      "artifact_id": "fixture-origin-comic-page",
+      "template_id": "layout/origin_comic_page",
+      "template_version": "1",
+      "prompt_text": "Render exactly five cells in causal order: title, cause, intervention, failure, reveal. Preserve cream gutters, caption-safe zones, and reveal dominance.",
+      "layout_style_ids": [
+        "origin-style"
+      ],
+      "typography_style_ids": [
+        "origin-title",
+        "origin-caption"
+      ],
+      "balloon_style_ids": [
+        "origin-callout"
+      ],
+      "source_ids": [
+        "supplied-image-5",
+        "supplied-image-8"
+      ],
+      "provider": "unassigned",
+      "model": "unassigned",
+      "seed": "fixture-origin-comic-page"
+    }
+  ]
+}
