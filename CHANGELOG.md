@@ -12,6 +12,7 @@
 - AvatarArts signal-punk, hidden-signal broadcast, and dark anime evidence-wall signatures derived from supplied first-party imagery.
 - Prompt templates for layout stability, identity consistency, lettering placement, SFX, signal-punk boards, and quality control.
 - YAML contract sketch showing how styles, cells, slots, and text regions work together.
+- Font ecosystem research, licensing boundaries, and typography manifest fields.
 - Source-quality classification and research caveats.
 
 ### Architectural implications
