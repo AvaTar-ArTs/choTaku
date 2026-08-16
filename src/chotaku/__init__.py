@@ -7,11 +7,31 @@ from .provenance import decision_ledger, manifest, source_ledger
 from .exports import export_cbz, export_review_pdf, export_svg_page
 from .mcp_surface import inspect_storyworld, validate_storyworld_payload
 from .projections import page_projection, storyboard_projection
+from .production import (
+    CellDefinition,
+    IdentityMemory,
+    LayoutContract,
+    LayoutSlot,
+    LayoutStyle,
+    ReaderState,
+    RenderCheckpoint,
+    RightsRecord,
+    TextRegionDefinition,
+)
 from .validation import Finding, validate_storyworld
 
 __all__ = [
     "Finding",
     "StoryWorld",
+    "CellDefinition",
+    "IdentityMemory",
+    "LayoutContract",
+    "LayoutSlot",
+    "LayoutStyle",
+    "ReaderState",
+    "RenderCheckpoint",
+    "RightsRecord",
+    "TextRegionDefinition",
     "compile_storyworld",
     "decision_ledger",
     "graph_summary",
