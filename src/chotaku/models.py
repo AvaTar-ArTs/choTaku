@@ -12,6 +12,7 @@ from typing import Any
 from .production import (
     IdentityMemory,
     LayoutContract,
+    LayoutSlot,
     layout_contract_from_dict,
     ReaderState,
     RenderCheckpoint,
