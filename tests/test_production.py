@@ -93,3 +93,51 @@ def test_cells_styles_and_text_regions_have_own_contracts():
     svg = layout_to_svg(contract)
     assert "reveal" in svg
     assert "The signal returns." in svg
+
+
+def test_visual_language_fixture_pack_is_valid():
+    import json
+    from pathlib import Path
+    from chotaku.production import layout_contract_from_dict
+
+    root = Path(__file__).parents[1] / "fixtures" / "layouts"
+    names = {"ltr-grid.json", "rtl-grid.json", "ttb-scroll.json", "dossier-grid.json", "storyboard-shot.json"}
+    for name in names:
+        contract = layout_contract_from_dict(json.loads((root / name).read_text()))
+        assert validate_layout(contract) == []
+        assert contract.prompt_manifests[0].template_id.startswith("layout/")
+        assert contract.typography_styles
+        assert contract.gutter_rhythm
+
+
+def test_visual_language_validators_report_deterministic_findings():
+    from chotaku.production import (
+        BalloonStyle,
+        CellDefinition,
+        TextRegionDefinition,
+        TypographyStyle,
+        validate_balloon_tails,
+        validate_text_overflow,
+    )
+
+    contract = LayoutContract(
+        "invalid-language",
+        slots=[LayoutSlot("p1", "hero", 0, 0, 100, 100)],
+        cells=[
+            CellDefinition("c1", "p1", role="hero", reading_order=1),
+            CellDefinition("c2", "p1", role="detail", reading_order=1),
+        ],
+        text_regions=[
+            TextRegionDefinition("dialogue", "c1", kind="dialogue", text="hello"),
+            TextRegionDefinition("caption", "c2", text="this text is intentionally too long"),
+        ],
+        typography_styles=[TypographyStyle("tight", max_characters=5)],
+        balloon_styles=[BalloonStyle("speech-balloon")],
+    )
+    codes = {finding.code for finding in validate_layout(contract)}
+    assert "duplicate-reading-order" in codes
+    assert "missing-balloon-style" in codes
+    assert "text-overflow" not in codes
+    assert "missing-balloon-tail" not in codes
+    assert {finding.code for finding in validate_balloon_tails(contract)} == {"missing-balloon-style"}
+    assert validate_text_overflow(contract) == []
