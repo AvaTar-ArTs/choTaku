@@ -1,0 +1,517 @@
+{
+  "id": "choosing-to-be-chosen",
+  "title": "The Curse of Knowing",
+  "logline": "A seeker who has spent a lifetime refusing every imposed destiny finally chooses to be chosen—and receives the curse of knowing every consequence before it arrives.",
+  "themes": [
+    "agency versus destiny",
+    "knowledge as burden",
+    "consent and transformation",
+    "the cost of certainty",
+    "choosing belonging"
+  ],
+  "style_tags": [
+    "scarlet crimson occult anime",
+    "dark fantasy graphic novel",
+    "ritual noir",
+    "signal-punk divination",
+    "ink-heavy manga contrast",
+    "magenta and bone-white glyphs"
+  ],
+  "sources": [
+    "AvatarArts original concept",
+    "choTaku visual-language research",
+    "User creative direction: choosing to be chosen and gifted with the curse of knowing"
+  ],
+  "metadata": {
+    "creation_test": true,
+    "creative_question": "What does it mean to choose the fate that chooses you?",
+    "format_targets": ["manga", "comic", "graphic-novel", "webtoon", "storyboard"],
+    "protagonist_principle": "The gift is not omniscience; it is involuntary consequence-awareness.",
+    "visual_signature": "signal-punk dossier fused with scarlet occult anime"
+  },
+  "characters": [
+    {
+      "id": "the-seeker",
+      "name": "The Seeker",
+      "role": "protagonist",
+      "goals": [
+        "choose a transformation freely",
+        "discover whether consent can survive prophecy",
+        "protect others from consequences only they can see"
+      ],
+      "fears": [
+        "being chosen as a vessel rather than a person",
+        "knowing the exact moment someone will betray them",
+        "mistaking certainty for truth"
+      ],
+      "wounds": [
+        "every authority figure called obedience a gift",
+        "they were praised only when useful",
+        "belonging was always offered as a contract"
+      ],
+      "contradictions": [
+        "they demand freedom while secretly wanting a fate strong enough to hold them",
+        "they resent prophecy yet keep trying to prevent it",
+        "they fear being known but cannot stop knowing everyone else"
+      ],
+      "visual_anchors": [
+        "short black hair with one crimson-white streak",
+        "left eye reflecting branching red futures",
+        "right hand wrapped in ritual thread",
+        "small broken halo sigil at the throat",
+        "long charcoal coat with scarlet lining",
+        "silver divination knife worn as a pendant"
+      ]
+    },
+    {
+      "id": "the-choosing",
+      "name": "The Choosing",
+      "role": "antagonistic-force",
+      "goals": [
+        "find a consenting bearer",
+        "end the cycle of unwilling vessels",
+        "make the bearer witness the cost of every possible mercy"
+      ],
+      "fears": [
+        "being mistaken for a god",
+        "being chosen only out of desperation",
+        "a bearer who knows everything except why they stayed"
+      ],
+      "wounds": [
+        "it has been treated as a weapon for centuries",
+        "every former bearer blamed the curse for their own decisions"
+      ],
+      "contradictions": [
+        "it wants consent but engineers irresistible invitations",
+        "it reveals consequences to prevent cruelty while creating paralysis",
+        "it calls itself a gift because it cannot bear being called a wound"
+      ],
+      "visual_anchors": [
+        "faceless crimson silhouette behind translucent ritual glass",
+        "many thin hands arranged like a compass",
+        "voice represented by angular radio glyphs",
+        "halo made of broken clock faces",
+        "never fully occupies the same panel as the Seeker"
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": "the-threshold-archive",
+      "name": "The Threshold Archive",
+      "description": "A ruined observatory-library where rejected destinies are catalogued as living red threads.",
+      "sensory_motifs": [
+        "iron rain on glass",
+        "candle smoke",
+        "wet vellum",
+        "distant bells",
+        "static between heartbeats",
+        "red thread tightening around forgotten names"
+      ]
+    },
+    {
+      "id": "the-city-of-almosts",
+      "name": "The City of Almosts",
+      "description": "A nocturnal city made from futures that nearly happened, where every alley displays a different version of the Seeker.",
+      "sensory_motifs": [
+        "neon magenta rain",
+        "blue-black rooftops",
+        "unplayed songs",
+        "street signs naming choices",
+        "crowds with familiar faces"
+      ]
+    }
+  ],
+  "lore": [
+    {
+      "id": "law-of-consenting-fate",
+      "title": "The Law of Consenting Fate",
+      "statement": "A destiny can call your name, but it cannot become yours until you answer knowingly.",
+      "status": "canon",
+      "sources": ["AvatarArts original concept"]
+    },
+    {
+      "id": "curse-of-knowing",
+      "title": "The Curse of Knowing",
+      "statement": "The bearer sees the most probable consequence of each meaningful choice, but never receives the reason a choice remains worth making.",
+      "status": "canon",
+      "sources": ["AvatarArts original concept"]
+    },
+    {
+      "id": "mercy-of-uncertainty",
+      "title": "The Mercy of Uncertainty",
+      "statement": "Unknown futures remain alive; every certainty the curse reveals collapses one branch of possibility.",
+      "status": "canon",
+      "sources": ["choTaku creation test"]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "the-red-thread",
+      "label": "The red thread",
+      "kind": "relic",
+      "description": "A living thread that tightens around the wrist whenever the Seeker approaches a decision they are avoiding.",
+      "consequence": "Cutting it transfers one known consequence into someone else's future.",
+      "discovered": true
+    },
+    {
+      "id": "the-broken-halo",
+      "label": "The broken halo",
+      "kind": "mark",
+      "description": "A throat sigil composed of seven incomplete arcs, one for each former bearer.",
+      "consequence": "A new arc appears whenever the Seeker chooses despite knowing the cost.",
+      "discovered": true
+    },
+    {
+      "id": "the-unwritten-door",
+      "label": "The unwritten door",
+      "kind": "threshold",
+      "description": "A door in the Threshold Archive with no predicted future behind it.",
+      "consequence": "The curse cannot see beyond it, making it the only place where genuine choice remains possible.",
+      "discovered": false
+    }
+  ],
+  "relationships": [
+    {
+      "id": "seeker-haunted-by-choosing",
+      "source_id": "the-seeker",
+      "target_id": "the-choosing",
+      "kind": "haunted-by",
+      "tension": "The Seeker wants to know whether the Choosing loves them or merely needs them.",
+      "history": "The Choosing has appeared in every dream since childhood but never completed the invitation.",
+      "status": "active",
+      "load_bearing": true
+    },
+    {
+      "id": "seeker-self-trust",
+      "source_id": "the-seeker",
+      "target_id": "the-seeker",
+      "kind": "self-conflict",
+      "tension": "The Seeker cannot distinguish intuition from a future already shown.",
+      "history": "Each prevented disaster creates a new reason to doubt the prevention.",
+      "status": "active",
+      "load_bearing": true
+    }
+  ],
+  "edges": [
+    {
+      "source_id": "the-red-thread",
+      "target_id": "the-unwritten-door",
+      "kind": "points-toward",
+      "weight": 1.0,
+      "notes": "The only future the curse cannot precompute."
+    },
+    {
+      "source_id": "the-seeker",
+      "target_id": "the-curse-of-knowing",
+      "kind": "embodies",
+      "weight": 1.0,
+      "notes": "The gift becomes a curse when certainty replaces consent."
+    }
+  ],
+  "events": [
+    {
+      "id": "refusal-at-the-threshold",
+      "title": "Refusal at the Threshold",
+      "summary": "The Seeker rejects the invitation because the curse shows them every version of themselves who accepts.",
+      "sequence": 1,
+      "participants": ["the-seeker", "the-choosing"],
+      "location_id": "the-threshold-archive",
+      "evidence_ids": ["the-red-thread", "the-broken-halo"]
+    },
+    {
+      "id": "the-choice-to-be-chosen",
+      "title": "The Choice to Be Chosen",
+      "summary": "After watching a future in which refusal destroys someone else, the Seeker returns and consents without asking what they will become.",
+      "sequence": 2,
+      "participants": ["the-seeker", "the-choosing"],
+      "location_id": "the-threshold-archive",
+      "evidence_ids": ["the-unwritten-door", "the-red-thread"]
+    },
+    {
+      "id": "the-gift-opens",
+      "title": "The Gift Opens",
+      "summary": "The Seeker receives the Curse of Knowing and sees consequences branching from every heartbeat in the room.",
+      "sequence": 3,
+      "participants": ["the-seeker"],
+      "location_id": "the-city-of-almosts",
+      "evidence_ids": ["the-broken-halo"]
+    },
+    {
+      "id": "mercy-is-a-blind-spot",
+      "title": "Mercy Is a Blind Spot",
+      "summary": "The Seeker discovers that the curse cannot see an act done without the desire to control its result.",
+      "sequence": 4,
+      "participants": ["the-seeker", "the-choosing"],
+      "location_id": "the-city-of-almosts",
+      "evidence_ids": ["the-unwritten-door", "the-broken-halo"]
+    },
+    {
+      "id": "the-known-ending",
+      "title": "The Known Ending",
+      "summary": "The Seeker sees their own death, refuses to prevent it, and chooses to spend the remaining certainty making one other person free.",
+      "sequence": 5,
+      "participants": ["the-seeker"],
+      "location_id": "the-city-of-almosts",
+      "evidence_ids": ["the-red-thread", "the-unwritten-door"]
+    }
+  ],
+  "scene_contracts": [
+    {
+      "id": "scene-refusal",
+      "event_id": "refusal-at-the-threshold",
+      "purpose": "Establish that refusal is an active choice, not cowardice.",
+      "emotional_turn": "defiance becomes loneliness",
+      "visual_motif": "a hand withdrawing from a door while the red thread remains extended",
+      "required_characters": ["the-seeker", "the-choosing"],
+      "required_evidence": ["the-red-thread", "the-broken-halo"],
+      "continuity_notes": ["The throat sigil has six arcs before consent.", "The Choosing remains behind glass."]
+    },
+    {
+      "id": "scene-consent",
+      "event_id": "the-choice-to-be-chosen",
+      "purpose": "Make consent the protagonist's act of authorship.",
+      "emotional_turn": "fear becomes chosen belonging",
+      "visual_motif": "the Seeker steps toward the hand that has been waiting",
+      "required_characters": ["the-seeker", "the-choosing"],
+      "required_evidence": ["the-unwritten-door", "the-red-thread"],
+      "continuity_notes": ["The Seeker says yes before the curse explains the terms.", "The seventh halo arc appears only after the answer."]
+    },
+    {
+      "id": "scene-gift",
+      "event_id": "the-gift-opens",
+      "purpose": "Show knowing as sensory overload rather than generic power.",
+      "emotional_turn": "wonder becomes unbearable simultaneity",
+      "visual_motif": "one room fractured into red translucent futures",
+      "required_characters": ["the-seeker"],
+      "required_evidence": ["the-broken-halo"],
+      "continuity_notes": ["Keep the left eye as the future eye.", "Every branch must retain the same identity anchors."]
+    },
+    {
+      "id": "scene-mercy",
+      "event_id": "mercy-is-a-blind-spot",
+      "purpose": "Introduce the loophole: mercy survives when control is relinquished.",
+      "emotional_turn": "certainty becomes humility",
+      "visual_motif": "a blank panel where the curse expects an answer",
+      "required_characters": ["the-seeker", "the-choosing"],
+      "required_evidence": ["the-unwritten-door", "the-broken-halo"],
+      "continuity_notes": ["The blankness is intentional and must not be filled with decorative noise."]
+    },
+    {
+      "id": "scene-ending",
+      "event_id": "the-known-ending",
+      "purpose": "Resolve the premise by choosing meaning after certainty.",
+      "emotional_turn": "terror becomes generosity",
+      "visual_motif": "the Seeker cuts the red thread only after giving it to another free hand",
+      "required_characters": ["the-seeker"],
+      "required_evidence": ["the-red-thread", "the-unwritten-door"],
+      "continuity_notes": ["The final image is not victory; it is an open future.", "Preserve the broken halo as a completed but imperfect mark."]
+    }
+  ],
+  "shots": [
+    {
+      "id": "shot-refusal-wide",
+      "scene_id": "scene-refusal",
+      "shot_type": "establishing",
+      "camera": "high wide angle through observatory glass",
+      "action": "The Seeker stands before the unwritten door while red threads map rejected futures.",
+      "dialogue": "I refuse to be grateful for a cage.",
+      "panel_role": "establishing"
+    },
+    {
+      "id": "shot-consent-close",
+      "scene_id": "scene-consent",
+      "shot_type": "close-up",
+      "camera": "low angle on the hand and throat sigil",
+      "action": "The Seeker accepts the offered hand.",
+      "dialogue": "I choose to be chosen.",
+      "panel_role": "reveal"
+    },
+    {
+      "id": "shot-gift-fracture",
+      "scene_id": "scene-gift",
+      "shot_type": "subjective",
+      "camera": "eye-level subjective vision",
+      "action": "The room splits into hundreds of consequence branches.",
+      "dialogue": "I know what happens next.",
+      "panel_role": "impact"
+    },
+    {
+      "id": "shot-mercy-blank",
+      "scene_id": "scene-mercy",
+      "shot_type": "negative-space",
+      "camera": "static centered frame",
+      "action": "The curse reaches toward a blank future and finds no image.",
+      "dialogue": "Then let it remain unknown.",
+      "panel_role": "silent"
+    },
+    {
+      "id": "shot-ending-thread",
+      "scene_id": "scene-ending",
+      "shot_type": "back-view",
+      "camera": "wide rooftop silhouette",
+      "action": "The Seeker places the red thread in another person's open hand.",
+      "dialogue": "Knowing is not the same as owning.",
+      "panel_role": "closing"
+    }
+  ],
+  "identity_memories": [
+    {
+      "id": "identity-seeker-v1",
+      "character_id": "the-seeker",
+      "version": "1",
+      "status": "approved",
+      "visual_anchors": [
+        "short black hair with one crimson-white streak",
+        "left eye reflecting branching red futures",
+        "right hand wrapped in ritual thread",
+        "small broken halo sigil at the throat",
+        "long charcoal coat with scarlet lining",
+        "silver divination knife worn as a pendant"
+      ],
+      "negative_anchors": [
+        "do not change the hair streak to blue",
+        "do not remove the throat sigil",
+        "do not give the Seeker a generic wizard staff",
+        "do not make the future eye glow without branching reflections",
+        "do not replace the charcoal coat with royal robes"
+      ],
+      "reference_asset_ids": ["asset-seeker-turnaround", "asset-seeker-eye-detail"],
+      "continuity_notes": ["The left eye is the visual carrier of the curse.", "The thread begins on the right hand and later crosses the throat."],
+      "source_ids": ["source-creation-test"]
+    },
+    {
+      "id": "identity-choosing-v1",
+      "character_id": "the-choosing",
+      "version": "1",
+      "status": "approved",
+      "visual_anchors": [
+        "faceless crimson silhouette behind translucent ritual glass",
+        "many thin hands arranged like a compass",
+        "angular radio glyph voice",
+        "halo made of broken clock faces"
+      ],
+      "negative_anchors": [
+        "do not render as a conventional horned demon",
+        "do not reveal a stable human face",
+        "do not make the entity physically overlap the Seeker before consent"
+      ],
+      "reference_asset_ids": ["asset-choosing-glass-shadow"],
+      "continuity_notes": ["The Choosing is a presence and a contract before it is a body."],
+      "source_ids": ["source-creation-test"]
+    }
+  ],
+  "reader_states": [
+    {
+      "id": "reader-refusal",
+      "scene_id": "scene-refusal",
+      "known": ["The Seeker has rejected imposed destinies before.", "The red thread responds to avoidance."],
+      "new": ["The Choosing has been waiting since childhood."],
+      "open_questions": ["Is consent possible when every alternative is shown?"]
+    },
+    {
+      "id": "reader-consent",
+      "scene_id": "scene-consent",
+      "known": ["The curse wants a consenting bearer.", "The unwritten door cannot be predicted."],
+      "new": ["The Seeker chooses to be chosen without demanding safety."],
+      "open_questions": ["What does the gift take in exchange?"]
+    },
+    {
+      "id": "reader-gift",
+      "scene_id": "scene-gift",
+      "known": ["The Seeker consented.", "The seventh halo arc appeared."],
+      "new": ["The Seeker sees consequences before they happen."],
+      "open_questions": ["Can a person act freely while knowing the result?"]
+    },
+    {
+      "id": "reader-mercy",
+      "scene_id": "scene-mercy",
+      "known": ["The curse collapses futures into certainty."],
+      "new": ["Mercy creates a blind spot by refusing control."],
+      "open_questions": ["Will the Seeker choose uncertainty even when certainty could save someone?"]
+    },
+    {
+      "id": "reader-ending",
+      "scene_id": "scene-ending",
+      "known": ["The Seeker has seen their death.", "The red thread can be transferred."],
+      "new": ["The Seeker chooses meaning over prevention."],
+      "open_questions": ["Who will choose after the Seeker is gone?"]
+    }
+  ],
+  "rights_records": [
+    {
+      "id": "rights-original-world",
+      "subject_id": "choosing-to-be-chosen",
+      "status": "original",
+      "basis": "AvatarArts original creation test",
+      "source_ids": ["source-creation-test"],
+      "restrictions": [],
+      "notes": "Verify final publication ownership and contributor agreements before commercial release."
+    },
+    {
+      "id": "rights-visual-identity",
+      "subject_id": "the-seeker",
+      "status": "original",
+      "basis": "AvatarArts original character direction",
+      "source_ids": ["source-creation-test"],
+      "restrictions": [],
+      "notes": "Reference assets must be linked before generation."
+    }
+  ],
+  "layout_contracts": [
+    {
+      "id": "page-01-refusal",
+      "target": "manga-page",
+      "width": 1600,
+      "height": 2400,
+      "overflow_policy": "error",
+      "panel_order": ["slot-title", "slot-archive", "slot-thread", "slot-eye", "slot-caption"],
+      "default_style_id": "scarlet-occult",
+      "styles": [
+        {
+          "id": "scarlet-occult",
+          "family": "manga",
+          "direction": "rtl",
+          "background": "#09090d",
+          "border": "#d51f3f",
+          "border_width": 5,
+          "corner_radius": 0,
+          "gutter": 28,
+          "padding": 32,
+          "typography_id": "occult-lettering"
+        }
+      ],
+      "slots": [
+        {"id": "slot-title", "role": "title", "x": 80, "y": 80, "width": 1440, "height": 260, "label": "THE CURSE OF KNOWING", "safe_margin": 40},
+        {"id": "slot-archive", "role": "establishing", "x": 80, "y": 380, "width": 920, "height": 1000, "label": "THRESHOLD ARCHIVE", "safe_margin": 40},
+        {"id": "slot-thread", "role": "detail", "x": 1040, "y": 380, "width": 440, "height": 460, "label": "RED THREAD", "safe_margin": 30},
+        {"id": "slot-eye", "role": "reveal", "x": 1040, "y": 880, "width": 440, "height": 500, "label": "FUTURE EYE", "safe_margin": 30},
+        {"id": "slot-caption", "role": "caption", "x": 80, "y": 1420, "width": 1400, "height": 700, "label": "REFUSAL", "safe_margin": 40}
+      ],
+      "cells": [
+        {"id": "cell-title", "slot_id": "slot-title", "role": "title", "scene_id": "scene-refusal", "style_id": "scarlet-occult", "content_kind": "title", "reading_order": 1},
+        {"id": "cell-archive", "slot_id": "slot-archive", "role": "establishing", "scene_id": "scene-refusal", "shot_id": "shot-refusal-wide", "style_id": "scarlet-occult", "content_kind": "image", "reading_order": 2, "asset_id": "asset-archive-wide"},
+        {"id": "cell-thread", "slot_id": "slot-thread", "role": "clue", "scene_id": "scene-refusal", "style_id": "scarlet-occult", "content_kind": "image", "reading_order": 3, "asset_id": "asset-red-thread"},
+        {"id": "cell-eye", "slot_id": "slot-eye", "role": "detail", "scene_id": "scene-refusal", "style_id": "scarlet-occult", "content_kind": "image", "reading_order": 4, "asset_id": "asset-seeker-eye-detail"},
+        {"id": "cell-caption", "slot_id": "slot-caption", "role": "dialogue", "scene_id": "scene-refusal", "style_id": "scarlet-occult", "content_kind": "image", "reading_order": 5}
+      ],
+      "text_regions": [
+        {"id": "text-title", "cell_id": "cell-title", "kind": "title", "x": 0.06, "y": 0.28, "width": 0.88, "height": 0.4, "text": "THE CURSE OF KNOWING", "style_id": "scarlet-occult"},
+        {"id": "text-caption", "cell_id": "cell-caption", "kind": "caption", "x": 0.05, "y": 0.16, "width": 0.8, "height": 0.24, "text": "I refuse to be grateful for a cage.", "style_id": "scarlet-occult"}
+      ]
+    }
+  ],
+  "render_checkpoints": [
+    {
+      "id": "checkpoint-creation-test",
+      "artifact_id": "choosing-to-be-chosen",
+      "stage": "semantic-plan",
+      "status": "pending",
+      "completed_units": [],
+      "total_units": ["canon", "scenes", "identity", "reader-state", "rights", "layout"],
+      "output_ids": [],
+      "last_error": "",
+      "attempt": 0
+    }
+  ]
+}
