@@ -70,3 +70,26 @@ def test_layout_exports_declarative_svg():
     svg = layout_to_svg(contract)
     assert "<svg" in svg
     assert "Hero panel" in svg
+
+
+def test_cells_styles_and_text_regions_have_own_contracts():
+    from chotaku.production import (
+        CellDefinition,
+        LayoutStyle,
+        TextRegionDefinition,
+    )
+
+    contract = LayoutContract(
+        "styled-page",
+        width=400,
+        height=600,
+        slots=[LayoutSlot("p1", "hero", 0, 0, 400, 600)],
+        styles=[LayoutStyle("noir", family="manga", border="#00ccff")],
+        cells=[CellDefinition("cell-1", "p1", role="reveal", style_id="noir", reading_order=1)],
+        text_regions=[TextRegionDefinition("caption-1", "cell-1", text="The signal returns.")],
+        default_style_id="noir",
+    )
+    assert validate_layout(contract) == []
+    svg = layout_to_svg(contract)
+    assert "reveal" in svg
+    assert "The signal returns." in svg
