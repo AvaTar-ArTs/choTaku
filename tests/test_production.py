@@ -200,3 +200,19 @@ def test_focal_weight_is_range_checked_and_missing_weight_is_visible():
     )
     findings = validate_focal_cell_dominance(contract)
     assert {finding.code for finding in findings} == {"invalid-focal-weight"}
+
+
+
+def test_curse_of_knowing_visual_dry_run_exports_clean_svg():
+    import json
+    from pathlib import Path
+    from chotaku.production import layout_contract_from_dict, layout_to_svg
+
+    path = Path(__file__).parents[1] / "fixtures" / "layouts" / "curse-of-knowing-dry-run.json"
+    contract = layout_contract_from_dict(json.loads(path.read_text()))
+    findings = validate_layout(contract)
+    assert findings == []
+    svg = layout_to_svg(contract, title="The Curse of Knowing")
+    assert "<svg" in svg
+    assert "Meaning over certainty" in svg
+    assert "I CHOOSE THE UNKNOWN." in svg
