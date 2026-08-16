@@ -308,8 +308,6 @@ def validate_focal_cell_dominance(contract: LayoutContract) -> list[ProductionFi
     for index, cell in enumerate(contract.cells):
         if cell.focal_weight < 0 or cell.focal_weight > 1:
             findings.append(ProductionFinding("invalid-focal-weight", "error", "focal_weight must be between 0 and 1", f"cells[{index}].focal_weight"))
-    if focal and max(cell.focal_weight for cell in focal) == 0:
-        findings.append(ProductionFinding("missing-focal-weight", "warning", "hero/splash/reveal cells should declare focal_weight", "cells"))
     return findings
 
 
