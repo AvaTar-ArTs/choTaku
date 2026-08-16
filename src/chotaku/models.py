@@ -12,7 +12,7 @@ from typing import Any
 from .production import (
     IdentityMemory,
     LayoutContract,
-    LayoutSlot,
+    layout_contract_from_dict,
     ReaderState,
     RenderCheckpoint,
     RightsRecord,
@@ -187,12 +187,7 @@ class StoryWorld:
             identity_memories=many("identity_memories", IdentityMemory),
             reader_states=many("reader_states", ReaderState),
             rights_records=many("rights_records", RightsRecord),
-            layout_contracts=[
-                LayoutContract(
-                    **{**item, "slots": [LayoutSlot(**slot) for slot in item.get("slots", [])]}
-                )
-                for item in data.get("layout_contracts", [])
-            ],
+            layout_contracts=[layout_contract_from_dict(item) for item in data.get("layout_contracts", [])],
             render_checkpoints=many("render_checkpoints", RenderCheckpoint),
             sources=data.get("sources", []),
             metadata=data.get("metadata", {}),
