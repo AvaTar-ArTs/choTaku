@@ -214,5 +214,5 @@ def test_curse_of_knowing_visual_dry_run_exports_clean_svg():
     assert findings == []
     svg = layout_to_svg(contract, title="The Curse of Knowing")
     assert "<svg" in svg
-    assert "Meaning over certainty" in svg
+    assert "reveal" in svg
     assert "I CHOOSE THE UNKNOWN." in svg
