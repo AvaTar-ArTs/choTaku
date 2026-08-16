@@ -21,6 +21,12 @@ from .production import (
     SfxDefinition,
     TextRegionDefinition,
     TypographyStyle,
+    validate_balloon_tails,
+    validate_focal_cell_dominance,
+    validate_layout,
+    validate_references,
+    validate_slot_overlaps,
+    validate_text_overflow,
 )
 from .validation import Finding, validate_storyworld
 
@@ -40,6 +46,12 @@ __all__ = [
     "SfxDefinition",
     "TextRegionDefinition",
     "TypographyStyle",
+    "validate_balloon_tails",
+    "validate_focal_cell_dominance",
+    "validate_layout",
+    "validate_references",
+    "validate_slot_overlaps",
+    "validate_text_overflow",
     "compile_storyworld",
     "decision_ledger",
     "graph_summary",
