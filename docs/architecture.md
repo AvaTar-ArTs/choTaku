@@ -68,9 +68,15 @@ The expanded creator-system research led to a second contract layer between sema
 | IdentityMemory | approved visual anchors, negative anchors, references, versions, and drift checks |
 | ReaderState | known facts, new reveals, and unresolved questions |
 | RightsRecord | ownership, licensing, clearance, restrictions, and pre-generation gates |
-| LayoutContract | declarative page geometry, slots, order, safe margins, and overflow checks |
+| LayoutStyle | reusable visual grammar: direction, colors, borders, gutters, padding, and typography |
+| LayoutContract | page dimensions, safe margins, overflow policy, and the collection of slots, cells, styles, and text regions |
+| LayoutSlot | normalized geometry only; it does not define semantic content |
+| CellDefinition | the semantic panel/cell role, scene or shot binding, asset, content kind, style, and reading order |
+| TextRegionDefinition | normalized caption/dialogue/title/sound/metadata geometry, text, and style |
 | RenderCheckpoint | resumable units, completed outputs, failures, and remaining work |
 | SVG projection | deterministic inspection/export view for page and panel contracts |
+
+The distinction is intentional: geometry, semantic role, visual grammar, and language placement are independently addressable and testable. A renderer can change without changing canon, and a narrative revision can change a cell’s content without silently changing page geometry.
 
 This preserves the strongest external production pattern: approved identity memory + story-first planning + declarative layout + resumable production + provenance-aware export.
 
