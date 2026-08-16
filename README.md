@@ -102,7 +102,7 @@ examples/
   crimson-curse-master.json
   choosing-to-be-chosen.json  creation fixture: the Curse of Knowing
 fixtures/
-  layouts/          LTR, RTL, vertical-scroll, dossier, storyboard, signal, and origin contracts
+  layouts/          LTR, RTL, vertical-scroll, dossier, storyboard, signal, origin, and Curse of Knowing dry-run contracts
 tests/
   test_compiler.py
 ```
@@ -117,6 +117,10 @@ Read [docs/visual-reference-template-atlas-2026-08-15.md](docs/visual-reference-
 
 The generated visual atlas series is preserved under [assets/visual-atlas](assets/visual-atlas) with provenance and intended-use notes in [docs/generated-visual-atlas-series.md](docs/generated-visual-atlas-series.md). It covers six-world universe DNA, genre grammars, layout systems, sequential page systems, cross-format style variation, and genre-specific page rhythm.
 
+## Visual contract dry run
+
+The executable [Curse of Knowing dry-run fixture](fixtures/layouts/curse-of-knowing-dry-run.json) renders the story premise “choosing to be chosen” through the origin-comic layout family. Its regression test validates the contract, checks references and geometry, and produces a deterministic SVG preview.
+
 ## Creative-history audit
 
 The repository includes an evidence-bounded audit of the AvatarArts, Chozen Land, Origin Story, ichoTaKu, TrashCat, HeartBreak Alley, and multimodal production history in [docs/creative-history-audit.md](docs/creative-history-audit.md).
@@ -129,7 +133,7 @@ choTaku begins as a compact, inspectable kernel. Planned expansions include:
 - source-ledger ingestion and evidence confidence
 - panel and shot grammar
 - visual identity/reference adapters
-- typography, balloon, caption, SFX, and reading-order contracts
+- typography, balloon, caption, SFX, reading-order, focal-weight, overlap, and reference-integrity contracts
 - image, audio, video, lettering, and layout providers
 - MCP tools
 - web authoring surface
