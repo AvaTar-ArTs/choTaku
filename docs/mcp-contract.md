@@ -46,3 +46,19 @@ Provider keys, model calls, file uploads, and publishing destinations belong beh
 - Record provider/model metadata without storing secret values.
 - Keep generated assets outside the semantic repository unless explicitly versioned.
 - Make every mutating operation produce a decision record or an auditable diff.
+
+## Implemented read-only surface
+
+The first transport-neutral surface is implemented in `src/chotaku/mcp_surface.py`:
+
+- `inspect_storyworld`
+- `validate_storyworld`
+- `compile_storyworld`
+- `tool_manifest`
+- `dispatch`
+
+These functions accept JSON-compatible StoryWorld payloads and return JSON-compatible results. They do not call providers, write files, mutate canon, or accept credentials. A future MCP server can wrap them with explicit schemas and approval policy.
+
+## Production projections
+
+Storyboard and page projections live in `src/chotaku/projections.py`. SVG, CBZ, and review-PDF packaging lives in `src/chotaku/exports.py`. These are review/export boundaries; full raster composition, lettering, and provider execution remain downstream adapters.
