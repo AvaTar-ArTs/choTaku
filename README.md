@@ -113,6 +113,10 @@ The visual reference atlas documents eight supplied first-party reference images
 
 Read [docs/visual-reference-template-atlas-2026-08-15.md](docs/visual-reference-template-atlas-2026-08-15.md).
 
+## Generated visual atlas series
+
+The generated visual atlas series is preserved under [assets/visual-atlas](assets/visual-atlas) with provenance and intended-use notes in [docs/generated-visual-atlas-series.md](docs/generated-visual-atlas-series.md). It covers six-world universe DNA, genre grammars, layout systems, sequential page systems, cross-format style variation, and genre-specific page rhythm.
+
 ## Creative-history audit
 
 The repository includes an evidence-bounded audit of the AvatarArts, Chozen Land, Origin Story, ichoTaKu, TrashCat, HeartBreak Alley, and multimodal production history in [docs/creative-history-audit.md](docs/creative-history-audit.md).
