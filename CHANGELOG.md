@@ -1,5 +1,17 @@
 # Changelog
 
+## 2026-08-15 — Visual language contracts
+
+### Added
+
+- TypographyStyle, BalloonStyle, SfxDefinition, and PromptManifest dataclasses.
+- Text-region balloon, typography, speaker, target-anchor, and z-index fields.
+- Layout gutter rhythm, layout family, typography, balloon, SFX, and prompt-manifest collections.
+- Deterministic reading-order, balloon-tail, text-overflow, and focal-cell dominance validators.
+- Executable ltr_grid, rtl_grid, ttb_scroll, dossier_grid, and storyboard_shot fixtures.
+- Regression tests and CI compilation coverage for the visual-language fixture pack.
+
+
 ## 2026-08-15 — Creation test: The Curse of Knowing
 
 ### Added
