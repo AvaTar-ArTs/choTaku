@@ -9,6 +9,15 @@ from __future__ import annotations
 from dataclasses import asdict, dataclass, field
 from typing import Any
 
+from .production import (
+    IdentityMemory,
+    LayoutContract,
+    LayoutSlot,
+    ReaderState,
+    RenderCheckpoint,
+    RightsRecord,
+)
+
 
 @dataclass
 class Character:
@@ -145,6 +154,11 @@ class StoryWorld:
     shots: list[ShotPlan] = field(default_factory=list)
     source_records: list[SourceRecord] = field(default_factory=list)
     decisions: list[DecisionRecord] = field(default_factory=list)
+    identity_memories: list[IdentityMemory] = field(default_factory=list)
+    reader_states: list[ReaderState] = field(default_factory=list)
+    rights_records: list[RightsRecord] = field(default_factory=list)
+    layout_contracts: list[LayoutContract] = field(default_factory=list)
+    render_checkpoints: list[RenderCheckpoint] = field(default_factory=list)
     sources: list[str] = field(default_factory=list)
     metadata: dict[str, Any] = field(default_factory=dict)
 
@@ -170,6 +184,16 @@ class StoryWorld:
             shots=many("shots", ShotPlan),
             source_records=many("source_records", SourceRecord),
             decisions=many("decisions", DecisionRecord),
+            identity_memories=many("identity_memories", IdentityMemory),
+            reader_states=many("reader_states", ReaderState),
+            rights_records=many("rights_records", RightsRecord),
+            layout_contracts=[
+                LayoutContract(
+                    **{**item, "slots": [LayoutSlot(**slot) for slot in item.get("slots", [])]}
+                )
+                for item in data.get("layout_contracts", [])
+            ],
+            render_checkpoints=many("render_checkpoints", RenderCheckpoint),
             sources=data.get("sources", []),
             metadata=data.get("metadata", {}),
         )
