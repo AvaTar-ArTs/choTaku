@@ -66,3 +66,20 @@ def test_compilation_is_hashable_and_provider_neutral():
     assert len(plan["provenance"]["input_hash"]) == 64
     assert plan["scenes"][0]["generation"]["provider"] == "unassigned"
     assert len(plan["plan_hash"]) == 64
+
+
+def test_choosing_to_be_chosen_creation_fixture_compiles_production_contracts():
+    path = Path(__file__).parents[1] / "examples" / "choosing-to-be-chosen.json"
+    world = StoryWorld.from_dict(json.loads(path.read_text()))
+    plan = compile_storyworld(world, target="manga")
+
+    assert len(plan["scenes"]) == 5
+    assert plan["scenes"][1]["emotional_turn"] == "fear becomes chosen belonging"
+    assert plan["production"]["identity_memories"][0]["status"] == "approved"
+    assert plan["production"]["reader_states"][2]["new"] == [
+        "The Seeker sees consequences before they happen."
+    ]
+    layout = plan["production"]["layout_contracts"][0]
+    assert layout["default_style_id"] == "scarlet-occult"
+    assert len(layout["cells"]) == 5
+    assert layout["text_regions"][0]["text"] == "THE CURSE OF KNOWING"
