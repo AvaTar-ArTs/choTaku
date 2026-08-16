@@ -16,3 +16,4 @@ jobs:
       - run: python -m pip install -e ".[dev]"
       - run: pytest -q
       - run: python -m chotaku.cli examples/crimson-curse-master.json --output /tmp/chotaku-plan.json
+      - run: python -m chotaku.cli examples/choosing-to-be-chosen.json --target manga --output /tmp/choosing-to-be-chosen-plan.json
