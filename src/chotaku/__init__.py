@@ -8,30 +8,38 @@ from .exports import export_cbz, export_review_pdf, export_svg_page
 from .mcp_surface import inspect_storyworld, validate_storyworld_payload
 from .projections import page_projection, storyboard_projection
 from .production import (
+    BalloonStyle,
     CellDefinition,
     IdentityMemory,
     LayoutContract,
     LayoutSlot,
     LayoutStyle,
+    PromptManifest,
     ReaderState,
     RenderCheckpoint,
     RightsRecord,
+    SfxDefinition,
     TextRegionDefinition,
+    TypographyStyle,
 )
 from .validation import Finding, validate_storyworld
 
 __all__ = [
     "Finding",
     "StoryWorld",
+    "BalloonStyle",
     "CellDefinition",
     "IdentityMemory",
     "LayoutContract",
     "LayoutSlot",
     "LayoutStyle",
+    "PromptManifest",
     "ReaderState",
     "RenderCheckpoint",
     "RightsRecord",
+    "SfxDefinition",
     "TextRegionDefinition",
+    "TypographyStyle",
     "compile_storyworld",
     "decision_ledger",
     "graph_summary",
