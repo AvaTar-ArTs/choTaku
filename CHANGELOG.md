@@ -1,5 +1,24 @@
 # Changelog
 
+## 2026-08-15 — Vision-derived visual reference atlas
+
+### Added
+
+- Vision-derived layout atlas for eight supplied AvatarArts reference images.
+- Reusable signal dossier, signal profile, volume taxonomy, origin comic, system-breach, open-book spread, and webtoon transformation families.
+- Prompt templates that lock cell count, slot order, focal dominance, text-safe zones, identity memory, gutters, and reading direction.
+- Research links covering comic page anatomy, manga flow, lettering, speech balloons, webtoon pacing, and light-novel profile presentation.
+- Example fixtures for signal_dossier_board and origin_comic_page with exact style IDs, semantic cells, text regions, SFX, and prompt manifests.
+
+### Architectural implications
+
+- Cell geometry and visual grammar are now treated as reusable template families rather than one generic comic grid.
+- Gutter rhythm is semantic: regular for clarity, wide for pause, stepped for escalation, and scroll-pause for mobile reveal.
+- Character boards and light-novel profiles require identity repetition across portrait, full-body, prop, detail, silhouette, and emblem cells.
+- External references inform composition vocabulary; supplied first-party imagery remains the evidence source for AvatarArts-specific signal-punk signatures.
+
+See docs/visual-reference-template-atlas-2026-08-15.md.
+
 ## 2026-08-15 — Visual language contracts
 
 ### Added
@@ -10,7 +29,6 @@
 - Deterministic reading-order, balloon-tail, text-overflow, and focal-cell dominance validators.
 - Executable ltr_grid, rtl_grid, ttb_scroll, dossier_grid, and storyboard_shot fixtures.
 - Regression tests and CI compilation coverage for the visual-language fixture pack.
-
 
 ## 2026-08-15 — Creation test: The Curse of Knowing
 
@@ -23,7 +41,6 @@
 ### Narrative premise
 
 The protagonist is not gifted with generic omniscience. They are forced to see probable consequences while remaining unable to know why a choice is worth making. The dramatic resolution is choosing meaning after certainty.
-
 
 ## 2026-08-15 — Visual language research and prompt stabilization
 
