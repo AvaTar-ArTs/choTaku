@@ -1,0 +1,166 @@
+{
+  "id": "fixture-ttb-scroll",
+  "target": "webtoon",
+  "width": 1600,
+  "height": 2400,
+  "layout_family": "ttb_scroll",
+  "gutter_rhythm": "extra_wide",
+  "overflow_policy": "error",
+  "default_style_id": "fixture-style",
+  "panel_order": [
+    "slot-establishing",
+    "slot-cliffhanger"
+  ],
+  "styles": [
+    {
+      "id": "fixture-style",
+      "family": "manga",
+      "direction": "ttb",
+      "background": "#11131a",
+      "border": "#ff3d9a",
+      "border_width": 4,
+      "corner_radius": 0,
+      "gutter": 24,
+      "padding": 24,
+      "typography_id": "dialogue-type"
+    }
+  ],
+  "typography_styles": [
+    {
+      "id": "dialogue-type",
+      "semantic_family": "hand_lettered_all_caps",
+      "font_family_id": "open-license-dialogue",
+      "case": "upper",
+      "weight": "regular",
+      "tracking": 0,
+      "line_height": 1.2,
+      "max_lines": 3,
+      "max_characters": 120,
+      "fill": "#ffffff",
+      "stroke": "none",
+      "shadow": "none",
+      "alignment": "left",
+      "legibility_minimum": 14,
+      "language_script": "Latn",
+      "license_status": "verified",
+      "source_uri": "https://github.com/AvaTar-ArTs/choTaku"
+    }
+  ],
+  "balloon_styles": [
+    {
+      "id": "speech-balloon",
+      "kind": "speech",
+      "shape": "oval",
+      "fill": "#ffffff",
+      "border": "#111111",
+      "border_width": 2,
+      "tail_mode": "speaker",
+      "tail_target_required": true,
+      "opacity": 1
+    }
+  ],
+  "sfx_definitions": [
+    {
+      "id": "sfx-1",
+      "cell_id": "cell-establishing",
+      "text": "SIGNAL",
+      "action": "broadcast",
+      "force_direction": "radial",
+      "typography_id": "dialogue-type",
+      "fill": "#ff3d9a",
+      "outline": "#111111",
+      "offset": 0,
+      "rotation": 0,
+      "warp": "burst",
+      "z_index": 2
+    }
+  ],
+  "slots": [
+    {
+      "id": "slot-establishing",
+      "role": "establishing",
+      "x": 100,
+      "y": 80,
+      "width": 1400,
+      "height": 900,
+      "label": "Establishing",
+      "safe_margin": 40
+    },
+    {
+      "id": "slot-cliffhanger",
+      "role": "reveal",
+      "x": 100,
+      "y": 1120,
+      "width": 1400,
+      "height": 1100,
+      "label": "Cliffhanger",
+      "safe_margin": 40
+    }
+  ],
+  "cells": [
+    {
+      "id": "cell-establishing",
+      "slot_id": "slot-establishing",
+      "role": "establishing",
+      "scene_id": "scene-1",
+      "style_id": "fixture-style",
+      "content_kind": "image",
+      "reading_order": 1,
+      "text_region_ids": []
+    },
+    {
+      "id": "cell-cliffhanger",
+      "slot_id": "slot-cliffhanger",
+      "role": "reveal",
+      "scene_id": "scene-1",
+      "style_id": "fixture-style",
+      "content_kind": "image",
+      "reading_order": 2,
+      "text_region_ids": [
+        "text-cliffhanger"
+      ]
+    }
+  ],
+  "text_regions": [
+    {
+      "id": "text-cliffhanger",
+      "cell_id": "cell-cliffhanger",
+      "kind": "dialogue",
+      "x": 0.08,
+      "y": 0.08,
+      "width": 0.65,
+      "height": 0.2,
+      "text": "The future looks back.",
+      "style_id": "fixture-style",
+      "balloon_style_id": "speech-balloon",
+      "typography_id": "dialogue-type",
+      "speaker_id": "oracle",
+      "target_anchor": "oracle-mouth",
+      "z_index": 3
+    }
+  ],
+  "prompt_manifests": [
+    {
+      "id": "prompt-fixture-ttb-scroll",
+      "artifact_id": "fixture-ttb-scroll",
+      "template_id": "layout/ttb_scroll",
+      "template_version": "1",
+      "prompt_text": "Render ttb_scroll using the locked cell geometry and declared reading order.",
+      "layout_style_ids": [
+        "fixture-style"
+      ],
+      "typography_style_ids": [
+        "dialogue-type"
+      ],
+      "balloon_style_ids": [
+        "speech-balloon"
+      ],
+      "source_ids": [
+        "fixture-source"
+      ],
+      "provider": "unassigned",
+      "model": "unassigned",
+      "seed": "fixture-ttb-scroll"
+    }
+  ]
+}
