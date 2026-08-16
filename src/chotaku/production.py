@@ -46,6 +46,72 @@ class RightsRecord:
 
 
 @dataclass
+class TypographyStyle:
+    id: str
+    semantic_family: str = "hand_lettered_all_caps"
+    font_family_id: str = "provider-default"
+    case: str = "upper"
+    weight: str = "regular"
+    tracking: float = 0.0
+    line_height: float = 1.2
+    max_lines: int | None = None
+    max_characters: int | None = None
+    fill: str = "#ffffff"
+    stroke: str = "none"
+    shadow: str = "none"
+    alignment: str = "left"
+    legibility_minimum: float = 12.0
+    language_script: str = "Latn"
+    license_status: str = "unknown"
+    source_uri: str = ""
+
+
+@dataclass
+class BalloonStyle:
+    id: str
+    kind: str = "speech"
+    shape: str = "oval"
+    fill: str = "#ffffff"
+    border: str = "#111111"
+    border_width: float = 2.0
+    tail_mode: str = "speaker"
+    tail_target_required: bool = True
+    opacity: float = 1.0
+
+
+@dataclass
+class SfxDefinition:
+    id: str
+    cell_id: str
+    text: str
+    action: str = ""
+    force_direction: str = "radial"
+    typography_id: str | None = None
+    fill: str = "#ffffff"
+    outline: str = "#111111"
+    offset: float = 0.0
+    rotation: float = 0.0
+    warp: str = "none"
+    z_index: int = 0
+
+
+@dataclass
+class PromptManifest:
+    id: str
+    artifact_id: str
+    template_id: str
+    template_version: str = "1"
+    prompt_text: str = ""
+    layout_style_ids: list[str] = field(default_factory=list)
+    typography_style_ids: list[str] = field(default_factory=list)
+    balloon_style_ids: list[str] = field(default_factory=list)
+    source_ids: list[str] = field(default_factory=list)
+    provider: str = "unassigned"
+    model: str = "unassigned"
+    seed: str | None = None
+
+
+@dataclass
 class LayoutStyle:
     id: str
     family: str = "comic"
@@ -97,6 +163,11 @@ class TextRegionDefinition:
     height: float = 1.0
     text: str = ""
     style_id: str | None = None
+    balloon_style_id: str | None = None
+    typography_id: str | None = None
+    speaker_id: str | None = None
+    target_anchor: str | None = None
+    z_index: int = 0
 
 
 @dataclass
@@ -112,6 +183,12 @@ class LayoutContract:
     cells: list[CellDefinition] = field(default_factory=list)
     text_regions: list[TextRegionDefinition] = field(default_factory=list)
     default_style_id: str | None = None
+    gutter_rhythm: str = "regular"
+    layout_family: str = "comic_grid"
+    typography_styles: list[TypographyStyle] = field(default_factory=list)
+    balloon_styles: list[BalloonStyle] = field(default_factory=list)
+    sfx_definitions: list[SfxDefinition] = field(default_factory=list)
+    prompt_manifests: list[PromptManifest] = field(default_factory=list)
 
 
 @dataclass
@@ -159,8 +236,72 @@ def layout_contract_from_dict(data: dict[str, Any]) -> LayoutContract:
             "styles": [LayoutStyle(**item) for item in data.get("styles", [])],
             "cells": [CellDefinition(**item) for item in data.get("cells", [])],
             "text_regions": [TextRegionDefinition(**item) for item in data.get("text_regions", [])],
+            "typography_styles": [TypographyStyle(**item) for item in data.get("typography_styles", [])],
+            "balloon_styles": [BalloonStyle(**item) for item in data.get("balloon_styles", [])],
+            "sfx_definitions": [SfxDefinition(**item) for item in data.get("sfx_definitions", [])],
+            "prompt_manifests": [PromptManifest(**item) for item in data.get("prompt_manifests", [])],
         }
     )
+
+
+def validate_reading_order(contract: LayoutContract) -> list[ProductionFinding]:
+    findings: list[ProductionFinding] = []
+    orders = [cell.reading_order for cell in contract.cells]
+    if len(orders) != len(set(orders)):
+        findings.append(ProductionFinding("duplicate-reading-order", "error", "cells must have unique reading_order values", "cells"))
+    if orders and sorted(orders) != list(range(1, len(orders) + 1)):
+        findings.append(ProductionFinding("non-contiguous-reading-order", "warning", "reading_order should be contiguous starting at 1", "cells"))
+    return findings
+
+
+def validate_balloon_tails(contract: LayoutContract) -> list[ProductionFinding]:
+    findings: list[ProductionFinding] = []
+    balloon_ids = {style.id: style for style in contract.balloon_styles}
+    for index, region in enumerate(contract.text_regions):
+        if region.kind not in {"dialogue", "speech", "whisper", "thought", "shout", "electronic", "ghost"}:
+            continue
+        path = f"text_regions[{index}]"
+        if not region.balloon_style_id:
+            findings.append(ProductionFinding("missing-balloon-style", "error", "dialogue region requires balloon_style_id", path))
+            continue
+        style = balloon_ids.get(region.balloon_style_id)
+        if style is None:
+            findings.append(ProductionFinding("unknown-balloon-style", "error", f"unknown balloon style: {region.balloon_style_id}", path))
+        elif style.tail_target_required and not (region.speaker_id or region.target_anchor):
+            findings.append(ProductionFinding("missing-balloon-tail", "error", "balloon requires speaker_id or target_anchor", path))
+    return findings
+
+
+def validate_text_overflow(contract: LayoutContract) -> list[ProductionFinding]:
+    findings: list[ProductionFinding] = []
+    typography = {style.id: style for style in contract.typography_styles}
+    for index, region in enumerate(contract.text_regions):
+        style = typography.get(region.typography_id or "")
+        if style is None:
+            continue
+        path = f"text_regions[{index}]"
+        if style.max_characters is not None and len(region.text) > style.max_characters:
+            findings.append(ProductionFinding("text-overflow", "error", f"text exceeds {style.max_characters} characters", path))
+        if style.max_lines is not None and region.text.count("\n") + 1 > style.max_lines:
+            findings.append(ProductionFinding("text-overflow", "error", f"text exceeds {style.max_lines} lines", path))
+    return findings
+
+
+def validate_focal_cell_dominance(contract: LayoutContract) -> list[ProductionFinding]:
+    findings: list[ProductionFinding] = []
+    if not contract.cells:
+        return findings
+    slots = {slot.id: slot for slot in contract.slots}
+    focal = [cell for cell in contract.cells if cell.role in {"hero", "splash", "reveal"}]
+    if not focal:
+        return findings
+    def area(cell: CellDefinition) -> float:
+        slot = slots.get(cell.slot_id)
+        return 0.0 if slot is None else slot.width * slot.height
+    largest = max(contract.cells, key=area)
+    if max(area(cell) for cell in focal) < area(largest):
+        findings.append(ProductionFinding("focal-cell-not-dominant", "warning", "hero/splash/reveal cell should dominate page area", "cells"))
+    return findings
 
 
 def validate_layout(contract: LayoutContract) -> list[ProductionFinding]:
@@ -210,6 +351,10 @@ def validate_layout(contract: LayoutContract) -> list[ProductionFinding]:
             findings.append(ProductionFinding("unknown-style", "error", f"text region references unknown style: {region.style_id}", path))
         if region.width <= 0 or region.height <= 0:
             findings.append(ProductionFinding("invalid-text-region", "error", "text region dimensions must be positive", path))
+    findings.extend(validate_reading_order(contract))
+    findings.extend(validate_balloon_tails(contract))
+    findings.extend(validate_text_overflow(contract))
+    findings.extend(validate_focal_cell_dominance(contract))
     return findings
 
 
